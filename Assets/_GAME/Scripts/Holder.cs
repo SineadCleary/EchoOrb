@@ -3,16 +3,33 @@ using UnityEngine;
 public class Holder : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    public bool powered;
+    PlayerMovement player;
+    public bool powered { get; private set; }
     public bool near;
     [SerializeField] Sprite sprite_holder;
     [SerializeField] Sprite sprite_holder_orb;
     [SerializeField] Sprite sprite_holder_hilight;
     [SerializeField] Sprite sprite_holder_orb_hilight;
 
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+    }
+
     private void Start()
     {
         spriteRenderer = gameObject.GetComponentInParent<SpriteRenderer>();
+        SetPowered(powered);
+    }
+
+    private void OnEnable()
+    {
+        player.activateEvent.AddListener(Activate);
+    }
+
+    private void OnDisable()
+    {
+        player.activateEvent.RemoveListener(Activate);
     }
 
     public void SetSprite()
@@ -33,5 +50,24 @@ public class Holder : MonoBehaviour
         {
             spriteRenderer.sprite = sprite_holder;
         }
+    }
+
+    public void SetPowered(bool powered)
+    {
+        this.powered = powered;
+        SetSprite();
+        if (powered == false)
+        {
+            player.activateEvent.RemoveListener(Activate);
+        }
+        else
+        {
+            player.activateEvent.AddListener(Activate);
+        }
+    }
+
+    void Activate()
+    {
+        Debug.Log("Activation");
     }
 }

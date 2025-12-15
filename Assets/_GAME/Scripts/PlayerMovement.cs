@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,10 +11,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameManager gameManager;
     public Holder nearHolder;
 
+    public UnityEvent activateEvent;
+
+    private void Awake()
+    {
+        if (activateEvent == null) activateEvent = new UnityEvent();
+    }
 
     void Start()
     {
-        myRigidbody = GetComponent<Rigidbody2D>();   
+        myRigidbody = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
@@ -29,14 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnActivate()
     {
-        if (gameManager.NumOrbs >= 1)
-        {
-            Debug.Log("activate");
-        }
-        else
-        {
-            Debug.Log("no orbs");
-        }
+        activateEvent.Invoke();
     }
 
     void OnPut()
@@ -47,8 +47,7 @@ public class PlayerMovement : MonoBehaviour
         // Holder powered
         if (nearHolder.powered)
         {
-            nearHolder.powered = false;
-            nearHolder.SetSprite();
+            nearHolder.SetPowered(false);
             gameManager.AddOrb();
         }
         // Holder not powered
@@ -56,9 +55,8 @@ public class PlayerMovement : MonoBehaviour
         {
             // Has an orb
             if (gameManager.NumOrbs <= 0) return;
-            
-            nearHolder.powered = true;
-            nearHolder.SetSprite();
+
+            nearHolder.SetPowered(true);
             gameManager.RemoveOrb();
         }
     }
