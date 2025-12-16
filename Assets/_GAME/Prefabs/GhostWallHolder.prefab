@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4996736707636038550}
   - component: {fileID: 6299495489151047885}
   - component: {fileID: 1542218041256851362}
-  - component: {fileID: 497461292172899849}
+  - component: {fileID: 8665151931447839247}
   m_Layer: 0
-  m_Name: Holder
+  m_Name: GhostWallHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &497461292172899849
+--- !u!114 &8665151931447839247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,10 +138,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 415333290878786936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0da2492b8dcb6e48ad222c2b03d3a4c, type: 3}
+  m_Script: {fileID: 11500000, guid: b65eb03b74a76df40958983e9a447163, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Holder
-  powered: 0
+  m_EditorClassIdentifier: Assembly-CSharp::GhostWallHolder
   near: 0
   sprite_holder: {fileID: 21300000, guid: 1ec854a26c0eff94980ea4f97a94efa9, type: 3}
   sprite_holder_orb: {fileID: 21300000, guid: 4942e2f664628824192654b4a3a5b3ea, type: 3}

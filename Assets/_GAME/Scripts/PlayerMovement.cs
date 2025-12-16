@@ -13,11 +13,6 @@ public class PlayerMovement : MonoBehaviour
 
     public UnityEvent activateEvent;
 
-    private void Awake()
-    {
-        if (activateEvent == null) activateEvent = new UnityEvent();
-    }
-
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();

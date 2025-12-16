@@ -1,15 +1,18 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Holder : MonoBehaviour
+public abstract class Holder : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    PlayerMovement player;
+    PlayerMovement player; 
     public bool powered { get; private set; }
     public bool near;
     [SerializeField] Sprite sprite_holder;
     [SerializeField] Sprite sprite_holder_orb;
     [SerializeField] Sprite sprite_holder_hilight;
     [SerializeField] Sprite sprite_holder_orb_hilight;
+
 
     private void Awake()
     {
@@ -56,18 +59,13 @@ public class Holder : MonoBehaviour
     {
         this.powered = powered;
         SetSprite();
-        if (powered == false)
-        {
-            player.activateEvent.RemoveListener(Activate);
-        }
-        else
-        {
-            player.activateEvent.AddListener(Activate);
-        }
     }
 
-    void Activate()
+    protected void Activate()
     {
-        Debug.Log("Activation");
+        if (!powered) return;
+        OnActivate();
     }
+
+    protected abstract void OnActivate();
 }
