@@ -6,7 +6,6 @@ public class GhostWallHolder : Holder
 
     protected override void OnActivate()
     {
-        Debug.Log("Activation");
         foreach (var wall in walls)
         {
             wall.Toggle();

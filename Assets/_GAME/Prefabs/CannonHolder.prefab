@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4996736707636038550}
   - component: {fileID: 6299495489151047885}
   - component: {fileID: 1542218041256851362}
-  - component: {fileID: 8665151931447839247}
+  - component: {fileID: 8393649132985843217}
   m_Layer: 0
-  m_Name: GhostWallHolder
+  m_Name: CannonHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &8665151931447839247
+--- !u!114 &8393649132985843217
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,15 +138,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 415333290878786936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b65eb03b74a76df40958983e9a447163, type: 3}
+  m_Script: {fileID: 11500000, guid: 3137936eef045ff4fab39e95f183a60e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GhostWallHolder
+  m_EditorClassIdentifier: Assembly-CSharp::CannonHolder
   near: 0
   sprite_holder: {fileID: 21300000, guid: 1ec854a26c0eff94980ea4f97a94efa9, type: 3}
   sprite_holder_orb: {fileID: 21300000, guid: 4942e2f664628824192654b4a3a5b3ea, type: 3}
   sprite_holder_hilight: {fileID: 21300000, guid: 02f6285ffeff8e540a4e1f3bb97da79d, type: 3}
   sprite_holder_orb_hilight: {fileID: 21300000, guid: 830d2cedb30dd38408b1285b57c0b7f3, type: 3}
-  walls: []
+  cannons: []
 --- !u!1 &8416071097964044302
 GameObject:
   m_ObjectHideFlags: 0
