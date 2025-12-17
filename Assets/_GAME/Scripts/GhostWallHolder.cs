@@ -8,7 +8,7 @@ public class GhostWallHolder : Holder
     {
         foreach (var wall in walls)
         {
-            wall.Toggle();
+            wall.SetVisible(!wall.visible);
         }
     }
 }
