@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public abstract class Holder : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    PlayerMovement player; 
+    Player player; 
     public bool powered { get; private set; }
     public bool near;
     [SerializeField] Sprite sprite_holder;
@@ -16,7 +16,7 @@ public abstract class Holder : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     private void Start()

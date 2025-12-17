@@ -15,7 +15,7 @@ public class HolderTrigger : MonoBehaviour
 
         holder.near = true;
         // Set player's nearHolder to this holder
-        collision.GetComponent<PlayerMovement>().nearHolder = holder;
+        collision.GetComponent<Player>().nearHolder = holder;
         // Swap sprite
         holder.SetSprite();
     }
@@ -26,7 +26,7 @@ public class HolderTrigger : MonoBehaviour
 
         holder.near = false;
         // Set player's nearHolder to null
-        collision.GetComponent<PlayerMovement>().nearHolder = null;
+        collision.GetComponent<Player>().nearHolder = null;
         // Swap sprite
         holder.SetSprite();
     }

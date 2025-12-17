@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 10f;
     Rigidbody2D myRigidbody;
     Vector2 moveDirection;
+    GameObject startPoint;
+    Vector3 startPosition;
 
     [SerializeField] GameManager gameManager;
     public Holder nearHolder;
@@ -15,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        startPoint = GameObject.FindGameObjectWithTag("StartPoint");
+        startPosition = startPoint.transform.position;
+        transform.position = startPosition;
         myRigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -49,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             // Has an orb
-            if (gameManager.NumOrbs <= 0) return;
+            if (gameManager.numOrbs <= 0) return;
 
             nearHolder.SetPowered(true);
             gameManager.RemoveOrb();
