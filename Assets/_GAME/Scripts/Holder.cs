@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public abstract class Holder : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
+    AudioSource audioSource;
     Player player; 
     public bool powered { get; private set; }
     public bool near;
@@ -12,6 +13,8 @@ public abstract class Holder : MonoBehaviour
     [SerializeField] Sprite sprite_holder_orb;
     [SerializeField] Sprite sprite_holder_hilight;
     [SerializeField] Sprite sprite_holder_orb_hilight;
+    [SerializeField] AudioClip placeOrbSound;
+    [SerializeField] AudioClip takeOrbSound;
 
 
     private void Awake()
@@ -21,8 +24,9 @@ public abstract class Holder : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         spriteRenderer = gameObject.GetComponentInParent<SpriteRenderer>();
-        SetPowered(powered);
+        SetSprite();
     }
 
     private void OnEnable()
@@ -59,6 +63,11 @@ public abstract class Holder : MonoBehaviour
     {
         this.powered = powered;
         SetSprite();
+        if (powered)
+        {
+            audioSource.PlayOneShot(placeOrbSound);
+        }
+        else audioSource.PlayOneShot(takeOrbSound);
     }
 
     protected void Activate()

@@ -7,6 +7,7 @@ TagManager:
   - Projectile
   - StartPoint
   - Enemy
+  - AudioManager
   layers:
   - Default
   - TransparentFX

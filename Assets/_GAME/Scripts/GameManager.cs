@@ -7,9 +7,15 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] TextMeshProUGUI orbsText;
     [SerializeField] TextMeshProUGUI healthText;
+    [SerializeField] AudioClip playerHurtSound;
+    AudioSource audioSource;
     public int numOrbs {  get; private set; }
     public int playerHealth { get; private set; } = 100;
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public int AddOrb()
     {
@@ -27,6 +33,10 @@ public class GameManager : MonoBehaviour
 
     public int AddHealth(int healthPoints)
     {
+        if (healthPoints < 0)
+        {
+            audioSource.PlayOneShot(playerHurtSound);
+        }
         playerHealth += healthPoints;
         if (playerHealth > 100) playerHealth = 100;
         else if (playerHealth < 0)

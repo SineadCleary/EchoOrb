@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     Vector3 startPosition;
 
     [SerializeField] GameManager gameManager;
+    AudioSource myAudioSource;
+    [SerializeField] AudioClip activateSound;
+
     public Holder nearHolder;
 
     public UnityEvent activateEvent;
@@ -21,6 +24,7 @@ public class Player : MonoBehaviour
         startPosition = startPoint.transform.position;
         transform.position = startPosition;
         myRigidbody = GetComponent<Rigidbody2D>();
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -32,10 +36,19 @@ public class Player : MonoBehaviour
     void OnMove(InputValue value)
     {
         moveDirection = value.Get<Vector2>().normalized;
+        if (moveDirection.x > 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (moveDirection.x < 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     void OnActivate()
     {
+        myAudioSource.PlayOneShot(activateSound);
         activateEvent.Invoke();
     }
 

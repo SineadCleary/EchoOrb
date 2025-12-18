@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.U2D;
 
 // Used YouTube tutorial for Raycasts: https://www.youtube.com/watch?v=xDg2pxqJHq4 
 public class SimpleEnemyMovement : MonoBehaviour
@@ -16,6 +18,19 @@ public class SimpleEnemyMovement : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         myRigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        float direction = player.transform.position.x - transform.position.x;
+        if (direction > 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (direction < 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     private void FixedUpdate()

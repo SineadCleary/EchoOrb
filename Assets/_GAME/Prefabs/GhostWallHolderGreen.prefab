@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4996736707636038550}
   - component: {fileID: 6299495489151047885}
   - component: {fileID: 1542218041256851362}
-  - component: {fileID: 8393649132985843217}
-  - component: {fileID: 4831768217116791735}
+  - component: {fileID: 8665151931447839247}
+  - component: {fileID: 7516216147471490721}
   m_Layer: 0
-  m_Name: CannonHolder
+  m_Name: GhostWallHolderGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 1776717359
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1289724890, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
+  m_Sprite: {fileID: 815699039238499124, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -130,7 +130,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &8393649132985843217
+--- !u!114 &8665151931447839247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,20 +139,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 415333290878786936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3137936eef045ff4fab39e95f183a60e, type: 3}
+  m_Script: {fileID: 11500000, guid: b65eb03b74a76df40958983e9a447163, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CannonHolder
+  m_EditorClassIdentifier: Assembly-CSharp::GhostWallHolder
   near: 0
-  sprite_holder: {fileID: -1289724890, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
-  sprite_holder_orb: {fileID: -1258017920, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
-  sprite_holder_hilight: {fileID: 1378136374, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
-  sprite_holder_orb_hilight: {fileID: -1575697260, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
+  sprite_holder: {fileID: 815699039238499124, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
+  sprite_holder_orb: {fileID: 964062964, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
+  sprite_holder_hilight: {fileID: 2139359951, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
+  sprite_holder_orb_hilight: {fileID: 2011059086, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
   placeOrbSound: {fileID: 8300000, guid: 5c8aa2138851c494cbb081978d3f5009, type: 3}
   takeOrbSound: {fileID: 8300000, guid: 97e8e214dc1a24749871415f9327c94c, type: 3}
-  cannons:
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!82 &4831768217116791735
+  walls: []
+--- !u!82 &7516216147471490721
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
