@@ -8,12 +8,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI orbsText;
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] AudioClip playerHurtSound;
+    [SerializeField] GameObject endScreen;
     AudioSource audioSource;
     public int numOrbs {  get; private set; }
     public int playerHealth { get; private set; } = 100;
 
     private void Start()
     {
+        Time.timeScale = 1;
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -50,6 +52,7 @@ public class GameManager : MonoBehaviour
 
     void PlayerDeath()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        endScreen.SetActive(true);
+        Time.timeScale = 0;
     }
 }

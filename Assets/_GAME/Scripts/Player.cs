@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     GameObject startPoint;
     Vector3 startPosition;
 
-    [SerializeField] GameManager gameManager;
+    GameManager gameManager;
     AudioSource myAudioSource;
     [SerializeField] AudioClip activateSound;
 
@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         startPoint = GameObject.FindGameObjectWithTag("StartPoint");
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         startPosition = startPoint.transform.position;
         transform.position = startPosition;
         myRigidbody = GetComponent<Rigidbody2D>();

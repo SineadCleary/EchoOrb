@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class EchoOrb : MonoBehaviour
 {
     GameManager gameManager;
+    [SerializeField] AudioClip pickupSound;
     private void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
@@ -13,6 +15,7 @@ public class EchoOrb : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             gameManager.AddOrb();
+            collision.GetComponent<AudioSource>().PlayOneShot(pickupSound);
             Destroy(gameObject);
         }
     }

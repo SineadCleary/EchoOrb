@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EndPoint : MonoBehaviour
 {
+    [SerializeField] GameObject endScreen;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
@@ -9,5 +10,6 @@ public class EndPoint : MonoBehaviour
         collision.GetComponent<Player>().enabled = false;
         collision.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
         collision.transform.position = transform.position;
+        endScreen.SetActive(true);
     }
 }
