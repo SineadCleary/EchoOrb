@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3503836947026288096}
   - component: {fileID: 3448631571423621198}
   - component: {fileID: 7331135817333205726}
+  - component: {fileID: -6789291121169865233}
   m_Layer: 0
   m_Name: greenWall
   m_TagString: Untagged
@@ -137,3 +138,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-6789291121169865233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3266266641143889822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 958034e729389454aad2dd2a07839671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlaceableObject
+  id: 2

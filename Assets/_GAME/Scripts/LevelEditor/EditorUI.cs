@@ -14,6 +14,8 @@ public class EditorUI : MonoBehaviour
         editor.gridSnapping = !editor.gridSnapping;
     }
 
+
+    // Tools
     public void SelectTool()
     {
         editor.currentTool = LevelEditor.Tool.SELECT;
