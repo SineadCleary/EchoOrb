@@ -6,7 +6,11 @@ public class EditorUI : MonoBehaviour
 
     public void SwapItem(GameObject item)
     {
-        editor.SwapPlaceableItem(item);
+        Item itemData = item.GetComponent<Item>();
+        if (itemData != null)
+        {
+            editor.SwapPlaceableItem(itemData);
+        }
     }
 
     public void ToggleGridSnapping()

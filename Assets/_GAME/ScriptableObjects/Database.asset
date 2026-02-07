@@ -10,12 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c611298cd3acf346a001e4526040eea, type: 3}
-  m_Name: ObjectDatabase
+  m_Name: Database
   m_EditorClassIdentifier: Assembly-CSharp::ObjectDatabase
-  entries:
-  - id: 1
-    prefab: {fileID: 7348604220601699047, guid: 4ce5723d23f910a49a754e4cfde557c7, type: 3}
-  - id: 2
-    prefab: {fileID: 3266266641143889822, guid: 75a12a4f534ff784689fa5ec8293941d, type: 3}
-  - id: 3
-    prefab: {fileID: 955269314970787349, guid: 6823367de5dadb74296270f82c85d75c, type: 3}
+  items:
+  - {fileID: 11400000, guid: d26797ab609e8d647b839e08450c83e9, type: 2}
+  - {fileID: 11400000, guid: e3cbb97788e84ea4d895c317c3193c5a, type: 2}
+  - {fileID: 11400000, guid: d7201b1df95343344932c66b6e179823, type: 2}

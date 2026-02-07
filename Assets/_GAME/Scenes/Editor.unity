@@ -1940,9 +1940,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4cd8359d30ac44b870992d24863f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Editor
-  currentPlaceableItem: {fileID: 7348604220601699047, guid: 4ce5723d23f910a49a754e4cfde557c7, type: 3}
+  currentPlaceableItem: {fileID: 11400000, guid: d26797ab609e8d647b839e08450c83e9, type: 2}
   gridSnapping: 1
-  levelObjects: {fileID: 1484626282}
+  objectGroup: {fileID: 1484626282}
   currentTool: 0
 --- !u!4 &1323658609
 Transform:

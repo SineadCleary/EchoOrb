@@ -5,8 +5,7 @@ public class SaveLoad : MonoBehaviour
 {
     string path;
     [SerializeField] Transform objectGroup;
-    //[SerializeField] GameObject temp;
-    [SerializeField] ObjectDatabase database;
+    [SerializeField] SO_Database database;
 
     private void Awake()
     {
@@ -17,16 +16,15 @@ public class SaveLoad : MonoBehaviour
     {
         LevelData levelData = new LevelData();
 
-        foreach (Transform item in objectGroup)
+        foreach (Transform placedObject in objectGroup)
         {
-            PlaceableObject placeable = item.GetComponent<PlaceableObject>();
+            Item item = placedObject.GetComponent<Item>();
 
-            Vector3 pos = item.position;
+            Vector3 pos = placedObject.position;
 
             TileData data = new TileData
             {
-                //id = database.GetID(item.gameObject),
-                id = placeable.id,
+                id = item.data.id,
                 x = pos.x,
                 y = pos.y,
             };

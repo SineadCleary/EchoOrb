@@ -150,4 +150,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958034e729389454aad2dd2a07839671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlaceableObject
-  id: 3
+  data: {fileID: 11400000, guid: d7201b1df95343344932c66b6e179823, type: 2}

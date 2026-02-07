@@ -1,25 +1,27 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class LevelEditor : MonoBehaviour
 {
-    Vector2 mousePosScreen;
-    Vector2 mousePosWorld;
-    [SerializeField] GameObject currentPlaceableItem;
+    [SerializeField] SO_PlaceableItem currentPlaceableItem;
     public bool gridSnapping = true;
-    [SerializeField] GameObject levelObjects;
-    GameObject objectPreview;
-    bool pointerOnUI;
-    bool pointerOnObject;
+    [SerializeField] GameObject objectGroup;
+
     public enum Tool { PLACE, SELECT, ERASE, EYEDROP }
     public Tool currentTool = Tool.PLACE;
+    
     GameObject selectedObject;
+    GameObject objectPreview;
+
+    Vector2 mousePosScreen;
+    Vector2 mousePosWorld;
+    bool pointerOnUI;
+    bool pointerOnObject;
 
     void Start()
     {
-        SetPreview(currentPlaceableItem);
+        SetPreview(currentPlaceableItem.prefab);
     }
 
     void Update()
@@ -37,8 +39,6 @@ public class LevelEditor : MonoBehaviour
         {
             objectPreview.SetActive(true);
             objectPreview.transform.position = new Vector3(mousePosWorld.x, mousePosWorld.y, -1);
-            //if (pointerOnObject) objectPreview.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 0.35f);
-            //else objectPreview.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.35f);
         }
         else objectPreview.SetActive(false);
 
@@ -60,7 +60,7 @@ public class LevelEditor : MonoBehaviour
         if (currentTool == Tool.PLACE)
         {
             if (pointerOnObject) return;
-            Instantiate(currentPlaceableItem, mousePosWorld, Quaternion.identity, levelObjects.transform);
+            Instantiate(currentPlaceableItem.prefab, mousePosWorld, Quaternion.identity, objectGroup.transform);
         }
         else if (currentTool == Tool.SELECT)
         {
@@ -80,9 +80,11 @@ public class LevelEditor : MonoBehaviour
             if (selectedObject != null)
             {
                 currentTool = Tool.PLACE;
-                //currentPlaceableItem = selectedObject.gameObject;
-                //SetPreview(currentPlaceableItem);
-                SwapPlaceableItem(selectedObject);
+                Item item = selectedObject.GetComponent<Item>();
+                if (item != null)
+                {
+                    SwapPlaceableItem(item);
+                }
             }
         }
     }
@@ -111,19 +113,19 @@ public class LevelEditor : MonoBehaviour
     }
 
 
-    public void SwapPlaceableItem(GameObject item)
+    public void SwapPlaceableItem(Item item)
     {
-        currentPlaceableItem = item;
-        SetPreview(item);
+        currentPlaceableItem = item.data;
+        SetPreview(currentPlaceableItem.prefab);
     }
 
-    void SetPreview(GameObject item)
+    void SetPreview(GameObject prefab)
     {
         if (objectPreview != null)
         {
             Destroy(objectPreview);
         }
-        objectPreview = Instantiate(item, Vector3.zero, Quaternion.identity);
+        objectPreview = Instantiate(prefab, Vector3.zero, Quaternion.identity);
         objectPreview.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.35f);
         objectPreview.GetComponent<Collider2D>().enabled = false;
     }
