@@ -11,6 +11,11 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void StartEditor()
+    {
+        SceneManager.LoadScene(2);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -23,6 +28,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenInstructions()
     {
+        if (openPanel == null || closePanel == null) return;
         openPanel.SetActive(true);
         closePanel.SetActive(false);
     }
