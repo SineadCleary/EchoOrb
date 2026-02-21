@@ -164,7 +164,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadLevel
   database: {fileID: 11400000, guid: 10f55cdecbd8ac9499ed8922e9b606fa, type: 2}
-  tilemap: {fileID: 3143791742639264439}
+  groundTilemap: {fileID: 1166908813609888117}
+  wallTilemap: {fileID: 3143791742639264439}
+  greenWallATilemap: {fileID: 3717900576528294927}
+  greenWallBTilemap: {fileID: 6675388701748796576}
+  purpleWallATilemap: {fileID: 7843892295272982560}
+  purpleWallBTilemap: {fileID: 8810136031353803543}
 --- !u!1 &228036133
 GameObject:
   m_ObjectHideFlags: 0

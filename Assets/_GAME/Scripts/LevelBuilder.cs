@@ -1,10 +1,31 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class LevelBuilder : MonoBehaviour
 {
     [SerializeField] SO_Database database;
-    [SerializeField] Tilemap tilemap;
+    [Header("Tilemaps")]
+    [SerializeField] Tilemap groundTilemap;
+    [SerializeField] Tilemap wallTilemap;
+    [SerializeField] Tilemap greenWallATilemap;
+    [SerializeField] Tilemap greenWallBTilemap;
+    [SerializeField] Tilemap purpleWallATilemap;
+    [SerializeField] Tilemap purpleWallBTilemap;
+
+    private Dictionary<MyTilemap, Tilemap> tilemapDictionary;
+
+    void Awake()
+    {
+        tilemapDictionary = new Dictionary<MyTilemap, Tilemap>
+        {
+            { MyTilemap.Wall, wallTilemap },
+            { MyTilemap.GreenWall_A, greenWallATilemap },
+            { MyTilemap.GreenWall_B, greenWallBTilemap },
+            { MyTilemap.PurpleWall_A, purpleWallATilemap },
+            { MyTilemap.PurpleWall_B, purpleWallBTilemap }
+        };
+    }
 
     void Start()
     {
@@ -28,7 +49,15 @@ public class LevelBuilder : MonoBehaviour
         {
             TileBase tileBase = database.GetTile(tile.tileID);
             
+            MyTilemap myTilemap = database.GetTilemap(tile.tileID);
+            if (!tilemapDictionary.TryGetValue(myTilemap, out Tilemap tilemap))
+            {
+                Debug.LogError("No Tilemap assigned for id: " + tile.tileID);
+                continue;
+            }
+
             Vector3 worldPos = new Vector3(tile.x, tile.y, 0);
+            if (tilemap == null) Debug.Log(tileBase.name);
             Vector3Int cellPos = tilemap.WorldToCell(worldPos);
 
             tilemap.SetTile(cellPos, tileBase);

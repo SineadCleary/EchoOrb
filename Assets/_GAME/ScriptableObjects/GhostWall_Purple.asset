@@ -18,3 +18,4 @@ MonoBehaviour:
   editorPrefab: {fileID: 955269314970787349, guid: 6823367de5dadb74296270f82c85d75c, type: 3}
   gamePrefab: {fileID: 0}
   tile: {fileID: 11400000, guid: d16134ac684bb5841b176ac2c9287844, type: 2}
+  tilemap: 5

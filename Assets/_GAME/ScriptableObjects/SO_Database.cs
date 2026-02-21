@@ -58,4 +58,15 @@ public class SO_Database : ScriptableObject
         Debug.LogError("No Tile for id: " + id);
         return null;
     }
+
+    public MyTilemap GetTilemap(int id) // tiles
+    {
+        if (dictionary.TryGetValue(id, out var item))
+        {
+            return item.tilemap;
+        }
+
+        Debug.LogError("ID: " + id + " not found.");
+        return MyTilemap.None;
+    }
 }
