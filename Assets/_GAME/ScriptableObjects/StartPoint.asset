@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce671329bca47eb49b92219fb3f6d348, type: 3}
-  m_Name: Wall
-  m_EditorClassIdentifier: Assembly-CSharp::PlaceableItem
-  id: 1
-  itemName: Wall
-  prefab: {fileID: 7348604220601699047, guid: 4ce5723d23f910a49a754e4cfde557c7, type: 3}
-  icon: {fileID: 21300000, guid: 2669c25fc61513e4f9ea8a0e18979b2f, type: 3}
+  m_Name: StartPoint
+  m_EditorClassIdentifier: Assembly-CSharp::SO_PlaceableItem
+  id: 100
+  itemName: Start Point
+  icon: {fileID: 0}
+  editorPrefab: {fileID: 112266201876489014, guid: 16b2049fd7b5e9048884006fdf1665fe, type: 3}
+  gamePrefab: {fileID: 112266201876489014, guid: 357fd746901a19b4b95c1402bebb2fc8, type: 3}
+  tile: {fileID: 0}

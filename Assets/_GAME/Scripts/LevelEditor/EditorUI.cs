@@ -6,10 +6,11 @@ public class EditorUI : MonoBehaviour
 
     public void SwapItem(GameObject item)
     {
-        Item itemData = item.GetComponent<Item>();
-        if (itemData != null)
+        Placeable placeableData = item.GetComponent<Placeable>();
+        if (placeableData != null)
         {
-            editor.SwapPlaceableItem(itemData);
+            editor.SwapPlaceableItem(placeableData);
+            editor.currentTool = LevelEditor.Tool.PLACE;
         }
     }
 

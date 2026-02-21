@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce671329bca47eb49b92219fb3f6d348, type: 3}
+  m_Name: EndPoint
+  m_EditorClassIdentifier: Assembly-CSharp::SO_PlaceableItem
+  id: 101
+  itemName: End Point
+  icon: {fileID: 0}
+  editorPrefab: {fileID: 4081938085796382903, guid: a45d4d3f898922940b2d0e2ab229a5f2, type: 3}
+  gamePrefab: {fileID: 4081938085796382903, guid: 4bbc5fb5d04d70b4bb8fe90b07cfb0e0, type: 3}
+  tile: {fileID: 0}

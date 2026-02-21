@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class LevelEditor : MonoBehaviour
 {
-    [SerializeField] SO_PlaceableItem currentPlaceableItem;
+    [SerializeField] SO_Placeable currentPlaceableItem;
     public bool gridSnapping = true;
     [SerializeField] GameObject objectGroup;
 
@@ -21,7 +21,7 @@ public class LevelEditor : MonoBehaviour
 
     void Start()
     {
-        SetPreview(currentPlaceableItem.prefab);
+        SetPreview(currentPlaceableItem.editorPrefab);
     }
 
     void Update()
@@ -60,7 +60,8 @@ public class LevelEditor : MonoBehaviour
         if (currentTool == Tool.PLACE)
         {
             if (pointerOnObject) return;
-            Instantiate(currentPlaceableItem.prefab, mousePosWorld, Quaternion.identity, objectGroup.transform);
+            Instantiate(currentPlaceableItem.editorPrefab, mousePosWorld, Quaternion.identity, objectGroup.transform);
+            //currentTool = Tool.SELECT; // single placeable items (start/end)
         }
         else if (currentTool == Tool.SELECT)
         {
@@ -80,10 +81,10 @@ public class LevelEditor : MonoBehaviour
             if (selectedObject != null)
             {
                 currentTool = Tool.PLACE;
-                Item item = selectedObject.GetComponent<Item>();
-                if (item != null)
+                Placeable placeable = selectedObject.GetComponent<Placeable>();
+                if (placeable != null)
                 {
-                    SwapPlaceableItem(item);
+                    SwapPlaceableItem(placeable);
                 }
             }
         }
@@ -113,10 +114,10 @@ public class LevelEditor : MonoBehaviour
     }
 
 
-    public void SwapPlaceableItem(Item item)
+    public void SwapPlaceableItem(Placeable placeable)
     {
-        currentPlaceableItem = item.data;
-        SetPreview(currentPlaceableItem.prefab);
+        currentPlaceableItem = placeable.data;
+        SetPreview(currentPlaceableItem.editorPrefab);
     }
 
     void SetPreview(GameObject prefab)

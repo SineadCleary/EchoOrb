@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce671329bca47eb49b92219fb3f6d348, type: 3}
-  m_Name: GhostWall_Purple
-  m_EditorClassIdentifier: Assembly-CSharp::PlaceableItem
-  id: 3
-  itemName: Purple Ghost Wall
-  icon: {fileID: 21300000, guid: 39a25b4d31fa38548a47af76c2281d0e, type: 3}
-  editorPrefab: {fileID: 955269314970787349, guid: 6823367de5dadb74296270f82c85d75c, type: 3}
+  m_Name: WallTile
+  m_EditorClassIdentifier: Assembly-CSharp::SO_Placeable
+  id: 1
+  itemName: Wall
+  icon: {fileID: 21300000, guid: 2669c25fc61513e4f9ea8a0e18979b2f, type: 3}
+  editorPrefab: {fileID: 7348604220601699047, guid: 4ce5723d23f910a49a754e4cfde557c7, type: 3}
   gamePrefab: {fileID: 0}
-  tile: {fileID: 11400000, guid: d16134ac684bb5841b176ac2c9287844, type: 2}
+  tile: {fileID: 11400000, guid: de713b8e07ccf5743abb9355f5c84d1c, type: 2}

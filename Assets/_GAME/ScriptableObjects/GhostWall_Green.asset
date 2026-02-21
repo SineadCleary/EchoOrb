@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce671329bca47eb49b92219fb3f6d348, type: 3}
   m_Name: GhostWall_Green
   m_EditorClassIdentifier: Assembly-CSharp::PlaceableItem
-  id: 3
+  id: 2
   itemName: Green Ghost Wall
-  prefab: {fileID: 3266266641143889822, guid: 75a12a4f534ff784689fa5ec8293941d, type: 3}
   icon: {fileID: 21300000, guid: a3f5e95e7b6d500449d7bfd71d296a63, type: 3}
+  editorPrefab: {fileID: 3266266641143889822, guid: 75a12a4f534ff784689fa5ec8293941d, type: 3}
+  gamePrefab: {fileID: 0}
+  tile: {fileID: 11400000, guid: f252ae2034e10254c989727ba3eeadab, type: 2}
