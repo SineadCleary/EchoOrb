@@ -1,41 +1,61 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName = "SO_Database", menuName = "Scriptable Objects/Database")]
 public class SO_Database : ScriptableObject
 {
-    public SO_Placeable[] items;
+    public SO_Placeable[] placeables;
+    private Dictionary<int, SO_Placeable> dictionary;
+
+    private void OnEnable()
+    {
+        dictionary = new Dictionary<int, SO_Placeable>();
+
+        foreach (var placeable in placeables)
+        {
+            if (dictionary.ContainsKey(placeable.id))
+            {
+                Debug.LogError("Duplicate ID found in database: " + placeable.id);
+                continue;
+            }
+
+            dictionary.Add(placeable.id, placeable);
+        }
+    }
 
     public GameObject GetEditorPrefab(int id)
     {
-        foreach (var item in items)
+        // TryGetValue(): checks for id: returns true if found, false if not found
+        // out: method assigns value 
+        if (dictionary.TryGetValue(id, out var item)) 
         {
-            if (item.id == id) return item.editorPrefab;
+            return item.editorPrefab;
         }
-
-        Debug.LogError("Missing object id: " + id);
+        
+        Debug.LogError("Dictionary missing id: " + id);
         return null;
     }
 
-    public GameObject GetGamePrefab(int id)
+    public GameObject GetGamePrefab(int id) // items
     {
-        foreach (var item in items)
+        if (dictionary.TryGetValue(id, out var item) && item.gamePrefab != null)
         {
-            if (item.id == id && item.gamePrefab != null) return item.gamePrefab;
+            return item.gamePrefab;
         }
 
-        Debug.LogError("Missing object id: " + id);
+        Debug.LogError("No GamePrefab for id: " + id);
         return null;
     }
 
-    public TileBase GetTile(int id)
+    public TileBase GetTile(int id) // tiles
     {
-        foreach (var tile in items)
+        if (dictionary.TryGetValue(id, out var item) && item.tile != null)
         {
-            if (tile.id == id && tile.tile != null) return tile.tile;
+            return item.tile;
         }
 
-        Debug.LogError("Missing tile id: " + id);
+        Debug.LogError("No Tile for id: " + id);
         return null;
     }
 }
