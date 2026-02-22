@@ -3,8 +3,14 @@ using System.Collections.Generic;
 [System.Serializable]
 public class LevelData
 {
+    public string title;
     public List<ItemData> items = new List<ItemData>();
     public List<TileData> tiles = new List<TileData>();
+
+    public LevelData(string title)
+    {
+        this.title = title;
+    }
 }
 
 // Possibly combine ItemData and TileData if floats are not required...

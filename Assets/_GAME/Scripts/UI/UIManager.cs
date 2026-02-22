@@ -23,10 +23,11 @@ public class UIManager : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        LevelLoader.currentLevel = null;
         SceneManager.LoadScene(0);
     }
 
-    public void OpenInstructions()
+    public void OpenPanel()
     {
         if (openPanel == null || closePanel == null) return;
         openPanel.SetActive(true);

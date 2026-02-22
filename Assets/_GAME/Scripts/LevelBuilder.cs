@@ -31,7 +31,6 @@ public class LevelBuilder : MonoBehaviour
     {
         if (LevelLoader.currentLevel == null) return;
         Build(LevelLoader.currentLevel);
-        LevelLoader.currentLevel = null;
     }
 
     public void Build(LevelData data)

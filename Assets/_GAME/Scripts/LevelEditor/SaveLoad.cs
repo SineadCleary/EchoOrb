@@ -1,6 +1,5 @@
 using System.IO;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SaveLoad : MonoBehaviour
 {
@@ -8,16 +7,24 @@ public class SaveLoad : MonoBehaviour
     [SerializeField] Transform objectGroup;
     [SerializeField] SO_Database database;
 
-    private void Awake()
+    private void Start()
     {
-        path = Application.persistentDataPath + "/levelData.json";
+        if (LevelLoader.currentLevel != null)
+        {
+            Load(LevelLoader.currentLevel);
+            string title = LevelLoader.currentLevel.title;
+
+            string folderPath = Path.Combine(Application.persistentDataPath, "Levels");
+            if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
+            path = Path.Combine(folderPath, title + ".json");
+        }
     }
 
     // editor objects -> LevelData
     // used for loading game level from editor
     public LevelData EditorObjectsToLevelData()
     {
-        LevelData levelData = new LevelData();
+        LevelData levelData = new LevelData(LevelLoader.currentLevel.title);
 
         foreach (Placeable placeable in objectGroup.GetComponentsInChildren<Placeable>())
         {
@@ -29,7 +36,7 @@ public class SaveLoad : MonoBehaviour
 
     // JSON -> LevelData
     // used for loading game level from gallery
-    public LevelData LoadLevelDataFromJSON(string filepath)
+    public static LevelData LoadLevelDataFromJSON(string filepath)
     {
         if (!File.Exists(filepath))
         {
@@ -50,17 +57,15 @@ public class SaveLoad : MonoBehaviour
     }
 
     // LevelData -> editor objects
-    public void Load()
+    public void Load(LevelData levelData)
     {
-        if (!File.Exists(path))
+        if (levelData == null)
         {
-            Debug.LogError("File " + path + " does not exist");
+            Debug.LogError("LevelData is null");
             return;
         }
 
         ClearAll();
-
-        LevelData levelData = LoadLevelDataFromJSON(path);
 
         // Load Tiles
         foreach (TileData tile in levelData.tiles)
@@ -77,18 +82,9 @@ public class SaveLoad : MonoBehaviour
             Vector3 pos = new Vector3(item.x, item.y, 0);
             Instantiate(prefab, pos, Quaternion.identity, objectGroup);
         }
-
-        Debug.Log("File loaded");
     }
 
-    // Play the current level in editor
-    public void PlayLevel()
-    {
-        //LevelLoader.LoadFromEditor(EditorObjectsToLevelData());
-        LevelLoader.currentLevel = EditorObjectsToLevelData();
-        SceneManager.LoadScene(3);
-    }
-
+    // Clear all editor placeables
     public void ClearAll()
     {
         foreach(Transform item in objectGroup)

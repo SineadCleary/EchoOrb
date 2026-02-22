@@ -1,9 +1,13 @@
+using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EditorUI : MonoBehaviour
 {
     [SerializeField] LevelEditor editor;
+    [SerializeField] SaveLoad saveLoad;
 
+    // Placeables
     public void SwapItem(GameObject item)
     {
         Placeable placeableData = item.GetComponent<Placeable>();
@@ -14,6 +18,7 @@ public class EditorUI : MonoBehaviour
         }
     }
 
+    // Grid Snapping
     public void ToggleGridSnapping()
     {
         editor.gridSnapping = !editor.gridSnapping;
@@ -39,5 +44,23 @@ public class EditorUI : MonoBehaviour
     public void EyedropTool()
     {
         editor.currentTool = LevelEditor.Tool.EYEDROP;
+    }
+
+    // Save/load
+
+    public void SaveButton()
+    {
+        saveLoad.Save();
+    }
+
+    public void EnterPlayMode()
+    {
+        LevelLoader.currentLevel = saveLoad.EditorObjectsToLevelData();
+        SceneManager.LoadScene(3);
+    }
+
+    public void ClearAll()
+    {
+        saveLoad.ClearAll();
     }
 }
