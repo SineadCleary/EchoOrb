@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce671329bca47eb49b92219fb3f6d348, type: 3}
+  m_Name: HolderGhostWallPurple
+  m_EditorClassIdentifier: Assembly-CSharp::SO_Placeable
+  id: 201
+  itemName: Purple Ghost Wall Holder
+  icon: {fileID: 0}
+  editorPrefab: {fileID: 112266201876489014, guid: ed44c66ac19951646917796845a39cae, type: 3}
+  gamePrefab: {fileID: 415333290878786936, guid: c7bd73c35e447054a8d46d518c22540f, type: 3}
+  tile: {fileID: 0}
+  tilemap: 0

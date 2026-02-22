@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI orbsText;
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] AudioClip playerHurtSound;
-    [SerializeField] GameObject endScreen;
+    [SerializeField] GameObject winScreen;
+    [SerializeField] GameObject loseScreen;
     AudioSource audioSource;
+    GameObject player;
     public int numOrbs {  get; private set; }
     public int playerHealth { get; private set; } = 100;
 
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         audioSource = GetComponent<AudioSource>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public int AddOrb()
@@ -50,9 +53,22 @@ public class GameManager : MonoBehaviour
         return playerHealth;
     }
 
+    public void Win()
+    {
+        // Player
+        if (player != null)
+        {
+            player.GetComponent<Player>().enabled = false;
+            player.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
+        }
+
+        winScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
     void PlayerDeath()
     {
-        endScreen.SetActive(true);
+        loseScreen.SetActive(true);
         Time.timeScale = 0;
     }
 }

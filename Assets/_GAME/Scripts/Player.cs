@@ -22,7 +22,8 @@ public class Player : MonoBehaviour
     {
         startPoint = GameObject.FindGameObjectWithTag("StartPoint");
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        startPosition = startPoint.transform.position;
+        if (startPoint != null) startPosition = startPoint.transform.position;
+        else startPosition = Vector3.zero;
         transform.position = startPosition;
         myRigidbody = GetComponent<Rigidbody2D>();
         myAudioSource = GetComponent<AudioSource>();
