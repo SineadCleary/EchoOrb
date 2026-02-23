@@ -7,8 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed = 10f;
     Rigidbody2D myRigidbody;
     Vector2 moveDirection;
-    GameObject startPoint;
-    Vector3 startPosition;
+    
 
     GameManager gameManager;
     AudioSource myAudioSource;
@@ -20,11 +19,6 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        startPoint = GameObject.FindGameObjectWithTag("StartPoint");
-        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        if (startPoint != null) startPosition = startPoint.transform.position;
-        else startPosition = Vector3.zero;
-        transform.position = startPosition;
         myRigidbody = GetComponent<Rigidbody2D>();
         myAudioSource = GetComponent<AudioSource>();
     }

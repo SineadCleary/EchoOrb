@@ -312,6 +312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadLevel
   database: {fileID: 11400000, guid: 10f55cdecbd8ac9499ed8922e9b606fa, type: 2}
+  player: {fileID: 912345865}
+  gameManager: {fileID: 1125488763}
   groundTilemap: {fileID: 1166908813609888117}
   wallTilemap: {fileID: 3143791742639264439}
   greenWallATilemap: {fileID: 3717900576528294927}
@@ -1398,6 +1400,11 @@ PrefabInstance:
       addedObject: {fileID: 1541962422}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7bdafe494410f54785da295036c1a42, type: 3}
+--- !u!1 &912345865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8355610678253031354, guid: d7bdafe494410f54785da295036c1a42, type: 3}
+  m_PrefabInstance: {fileID: 912345864}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &955919579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,6 +1856,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c613120971dcc14cafac0d4a56d59a6, type: 3}
+--- !u!114 &1125488763 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4614232538126528779, guid: 5c613120971dcc14cafac0d4a56d59a6, type: 3}
+  m_PrefabInstance: {fileID: 1125488762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4f8fd0fb5692741a781163a3f3c128, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1 &1128369869
 GameObject:
   m_ObjectHideFlags: 0

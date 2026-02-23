@@ -5,6 +5,8 @@ using UnityEngine.Tilemaps;
 public class LevelBuilder : MonoBehaviour
 {
     [SerializeField] SO_Database database;
+    [SerializeField] GameObject player;
+    [SerializeField] GameManager gameManager;
     [Header("Tilemaps")]
     [SerializeField] Tilemap groundTilemap;
     [SerializeField] Tilemap wallTilemap;
@@ -14,6 +16,9 @@ public class LevelBuilder : MonoBehaviour
     [SerializeField] Tilemap purpleWallBTilemap;
 
     private Dictionary<MyTilemap, Tilemap> tilemapDictionary;
+
+    GameObject startPoint;
+    Vector3 startPosition;
 
     void Awake()
     {
@@ -61,6 +66,12 @@ public class LevelBuilder : MonoBehaviour
 
             tilemap.SetTile(cellPos, tileBase);
         }
+
+        // Player
+        startPoint = GameObject.FindGameObjectWithTag("StartPoint");
+        if (startPoint != null) startPosition = startPoint.transform.position;
+        else startPosition = Vector3.zero;
+        player.transform.position = startPosition;
     }
 }
 
