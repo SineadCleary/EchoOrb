@@ -24,7 +24,6 @@ public class EditorUI : MonoBehaviour
         editor.gridSnapping = !editor.gridSnapping;
     }
 
-
     // Tools
     public void SelectTool()
     {
@@ -46,8 +45,12 @@ public class EditorUI : MonoBehaviour
         editor.currentTool = LevelEditor.Tool.EYEDROP;
     }
 
-    // Save/load
+    public void MoveTool()
+    {
+        editor.currentTool = LevelEditor.Tool.MOVE;
+    }
 
+    // Save/load
     public void SaveButton()
     {
         saveLoad.Save();

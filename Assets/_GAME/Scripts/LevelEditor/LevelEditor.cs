@@ -8,11 +8,13 @@ public class LevelEditor : MonoBehaviour
     public bool gridSnapping = true;
     [SerializeField] GameObject objectGroup;
 
-    public enum Tool { PLACE, SELECT, ERASE, EYEDROP }
+    public enum Tool { PLACE, SELECT, ERASE, EYEDROP, MOVE }
     public Tool currentTool = Tool.PLACE;
     
     GameObject selectedObject;
     GameObject objectPreview;
+
+    CameraMovement mainCamera;
 
     Vector2 mousePosScreen;
     Vector2 mousePosWorld;
@@ -21,6 +23,7 @@ public class LevelEditor : MonoBehaviour
 
     void Start()
     {
+        mainCamera = Camera.main.GetComponent<CameraMovement>();
         SetPreview(currentPlaceableItem.editorPrefab);
     }
 
@@ -54,7 +57,7 @@ public class LevelEditor : MonoBehaviour
         
     }
 
-    void OnLeftMouse()
+    public void OnLeftMouse(InputAction.CallbackContext context)
     {
         if (pointerOnUI) return;
         if (currentTool == Tool.PLACE)
@@ -87,6 +90,10 @@ public class LevelEditor : MonoBehaviour
                     SwapPlaceableItem(placeable);
                 }
             }
+        }
+        else if (currentTool == Tool.MOVE)
+        {
+            mainCamera.OnMoveCamera(context);
         }
     }
 
