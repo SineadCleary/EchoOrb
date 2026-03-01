@@ -402,6 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ec41e218c8f957408306b4c5e985df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraMovement
+  mainCamera: {fileID: 125467080}
 --- !u!1 &218687720
 GameObject:
   m_ObjectHideFlags: 0
@@ -3532,6 +3533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SaveLoad
   objectGroup: {fileID: 1484626283}
   database: {fileID: 11400000, guid: 10f55cdecbd8ac9499ed8922e9b606fa, type: 2}
+  mainCamera: {fileID: 125467080}
 --- !u!4 &1034324073
 Transform:
   m_ObjectHideFlags: 0

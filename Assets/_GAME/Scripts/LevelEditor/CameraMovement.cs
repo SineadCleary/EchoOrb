@@ -3,15 +3,10 @@ using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
 {
-    private Camera mainCamera;
+    [SerializeField] Camera mainCamera;
     Vector3 origin;
     Vector3 newPosDifference;
     bool isDragging;
-
-    void Awake()
-    {
-        mainCamera = Camera.main;
-    }
 
     // Code based on code seen in YouTube video: https://www.youtube.com/watch?v=H7pjj1K91HE
     private Vector3 GetMousePosition => mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -20,6 +15,17 @@ public class CameraMovement : MonoBehaviour
         if (context.started)
             origin = GetMousePosition;
         isDragging = context.started || context.performed;
+    }
+
+    public void StartDrag()
+    {
+        origin = GetMousePosition;
+        isDragging = true;
+    }
+
+    public void StopDrag()
+    {
+        isDragging = false;
     }
 
     private void LateUpdate()

@@ -6,6 +6,7 @@ public class SaveLoad : MonoBehaviour
     string path;
     [SerializeField] Transform objectGroup;
     [SerializeField] SO_Database database;
+    [SerializeField] Camera mainCamera;
 
     private void Start()
     {
@@ -30,6 +31,10 @@ public class SaveLoad : MonoBehaviour
         {
             placeable.AddToLevelData(levelData);
         }
+
+        // used in editor only
+        levelData.cameraPos = mainCamera.transform.position;
+        levelData.cameraZoom = mainCamera.orthographicSize;
 
         return levelData;
     }
@@ -82,6 +87,10 @@ public class SaveLoad : MonoBehaviour
             Vector3 pos = new Vector3(item.x, item.y, 0);
             Instantiate(prefab, pos, Quaternion.identity, objectGroup);
         }
+
+        // Setup Camera
+        mainCamera.transform.position = levelData.cameraPos;
+        mainCamera.orthographicSize = levelData.cameraZoom;
     }
 
     // Clear all editor placeables

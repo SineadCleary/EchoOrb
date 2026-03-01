@@ -1,15 +1,20 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
 public class LevelData
 {
     public string title;
+    public Vector3 cameraPos;
+    public float cameraZoom;
     public List<ItemData> items = new List<ItemData>();
     public List<TileData> tiles = new List<TileData>();
 
-    public LevelData(string title)
+    public LevelData(string title/*, Vector3 cameraPos, float cameraZoom*/)
     {
         this.title = title;
+        //this.cameraPos = cameraPos;
+        //this.cameraZoom = cameraZoom;
     }
 }
 

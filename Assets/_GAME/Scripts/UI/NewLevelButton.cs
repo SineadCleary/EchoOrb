@@ -11,7 +11,9 @@ public class NewLevelButton : MonoBehaviour
     {
         // replace invalid filename chars with "_"
         string title = string.Join("_", inputText.text.Split(Path.GetInvalidFileNameChars()));
-        LevelLoader.currentLevel = new LevelData(title);
+        LevelLoader.currentLevel = new LevelData(title/*, new Vector3(0,0,-10), 5f*/);
+        LevelLoader.currentLevel.cameraPos = new Vector3(0, 0, -10);
+        LevelLoader.currentLevel.cameraZoom = 5;
         SceneManager.LoadScene(2);
     }
 }

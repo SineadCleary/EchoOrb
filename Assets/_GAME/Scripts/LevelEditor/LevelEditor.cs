@@ -59,43 +59,52 @@ public class LevelEditor : MonoBehaviour
 
     public void OnLeftMouse(InputAction.CallbackContext context)
     {
+        if (pointerOnUI) return;
+
+        if (currentTool == Tool.MOVE)
+        {
+            if (context.started)
+                mainCamera.StartDrag();
+            if (context.canceled)
+                mainCamera.StopDrag();
+
+            return;
+        }
+
+        // MOVE tool requires context.performed, but other tools do not
         if (!context.performed) return;
 
-        if (pointerOnUI) return;
-        if (currentTool == Tool.PLACE)
+        switch(currentTool)
         {
-            if (pointerOnObject) return;
-            Instantiate(currentPlaceableItem.editorPrefab, mousePosWorld, Quaternion.identity, objectGroup.transform);
-            //currentTool = Tool.SELECT; // single placeable items (start/end)
-        }
-        else if (currentTool == Tool.SELECT)
-        {
-            TrySelectObject();
-        }
-        else if (currentTool == Tool.ERASE)
-        {
-            TrySelectObject();
-            if (selectedObject != null)
-            {
-                Destroy(selectedObject);
-            }
-        }
-        else if (currentTool == Tool.EYEDROP)
-        {
-            TrySelectObject();
-            if (selectedObject != null)
-            {
-                currentTool = Tool.PLACE;
-                Placeable placeable = selectedObject.GetComponent<Placeable>();
-                if (placeable != null)
+            case Tool.PLACE:
+                if (pointerOnObject) return;
+                Instantiate(currentPlaceableItem.editorPrefab, mousePosWorld, Quaternion.identity, objectGroup.transform);
+                //currentTool = Tool.SELECT; // single placeable items (start/end)
+                break;
+            case Tool.SELECT:
+                TrySelectObject();
+                break;
+            case Tool.ERASE:
+                TrySelectObject();
+                if (selectedObject != null)
                 {
-                    SwapPlaceableItem(placeable);
+                    Destroy(selectedObject);
                 }
-            }
-        }
-        else if (currentTool == Tool.MOVE)
-        {
-            mainCamera.OnMoveCamera(context);
+                break;
+            case Tool.EYEDROP:
+                TrySelectObject();
+                if (selectedObject != null)
+                {
+                    currentTool = Tool.PLACE;
+                    Placeable placeable = selectedObject.GetComponent<Placeable>();
+                    if (placeable != null)
+                    {
+                        SwapPlaceableItem(placeable);
+                    }
+                }
+                break;
+            default:
+                break;
         }
     }
 
