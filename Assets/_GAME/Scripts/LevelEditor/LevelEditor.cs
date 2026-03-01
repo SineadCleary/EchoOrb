@@ -59,6 +59,8 @@ public class LevelEditor : MonoBehaviour
 
     public void OnLeftMouse(InputAction.CallbackContext context)
     {
+        if (!context.performed) return;
+
         if (pointerOnUI) return;
         if (currentTool == Tool.PLACE)
         {

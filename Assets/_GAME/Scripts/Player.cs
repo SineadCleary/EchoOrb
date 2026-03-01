@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAudioSource = GetComponent<AudioSource>();
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
     private void FixedUpdate()

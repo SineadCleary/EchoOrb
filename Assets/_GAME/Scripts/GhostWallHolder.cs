@@ -1,8 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GhostWallHolder : Holder
 {
-    [SerializeField] GhostWall[] walls;
+    public MyTilemap[] myTilemaps;
+    public List<GhostWall> walls = new List<GhostWall>();
+    //public GhostWall[] walls;
 
     protected override void OnActivate()
     {

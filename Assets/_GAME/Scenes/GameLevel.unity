@@ -314,12 +314,12 @@ MonoBehaviour:
   database: {fileID: 11400000, guid: 10f55cdecbd8ac9499ed8922e9b606fa, type: 2}
   player: {fileID: 912345865}
   gameManager: {fileID: 1125488763}
-  groundTilemap: {fileID: 1166908813609888117}
-  wallTilemap: {fileID: 3143791742639264439}
-  greenWallATilemap: {fileID: 3717900576528294927}
-  greenWallBTilemap: {fileID: 6675388701748796576}
-  purpleWallATilemap: {fileID: 7843892295272982560}
-  purpleWallBTilemap: {fileID: 8810136031353803543}
+  groundTilemap: {fileID: 1128369869}
+  wallTilemap: {fileID: 288660892}
+  greenWallATilemap: {fileID: 228036133}
+  greenWallBTilemap: {fileID: 955919579}
+  purpleWallATilemap: {fileID: 1943641238}
+  purpleWallBTilemap: {fileID: 1519554899}
 --- !u!1 &228036133
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,6 +38,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6299495489151047885
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -83,6 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 1776717359
   m_SortingLayer: 2
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 747650689028828258, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -92,7 +94,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &1542218041256851362
 CircleCollider2D:
@@ -149,6 +150,7 @@ MonoBehaviour:
   sprite_holder_orb_hilight: {fileID: -1223483047933381903, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
   placeOrbSound: {fileID: 8300000, guid: 5c8aa2138851c494cbb081978d3f5009, type: 3}
   takeOrbSound: {fileID: 8300000, guid: 97e8e214dc1a24749871415f9327c94c, type: 3}
+  myTilemaps: 0500000006000000
   walls: []
 --- !u!82 &2453907467139900122
 AudioSource:

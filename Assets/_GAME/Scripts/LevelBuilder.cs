@@ -8,21 +8,23 @@ public class LevelBuilder : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameManager gameManager;
     [Header("Tilemaps")]
-    [SerializeField] Tilemap groundTilemap;
-    [SerializeField] Tilemap wallTilemap;
-    [SerializeField] Tilemap greenWallATilemap;
-    [SerializeField] Tilemap greenWallBTilemap;
-    [SerializeField] Tilemap purpleWallATilemap;
-    [SerializeField] Tilemap purpleWallBTilemap;
+    [SerializeField] GameObject groundTilemap;
+    [SerializeField] GameObject wallTilemap;
+    [SerializeField] GameObject greenWallATilemap;
+    [SerializeField] GameObject greenWallBTilemap;
+    [SerializeField] GameObject purpleWallATilemap;
+    [SerializeField] GameObject purpleWallBTilemap;
 
-    private Dictionary<MyTilemap, Tilemap> tilemapDictionary;
+    private Dictionary<MyTilemap, GameObject> tilemapDictionary;
+    private List<Cannon> cannons = new List<Cannon>();
+    private List<CannonHolder> cannonHolders = new List<CannonHolder>();
 
     GameObject startPoint;
     Vector3 startPosition;
 
     void Awake()
     {
-        tilemapDictionary = new Dictionary<MyTilemap, Tilemap>
+        tilemapDictionary = new Dictionary<MyTilemap, GameObject>
         {
             { MyTilemap.Wall, wallTilemap },
             { MyTilemap.GreenWall_A, greenWallATilemap },
@@ -45,7 +47,41 @@ public class LevelBuilder : MonoBehaviour
         {
             GameObject prefab = database.GetGamePrefab(obj.prefabID);
             Vector3 position = new Vector3(obj.x, obj.y, 0);
-            Instantiate(prefab, position, Quaternion.identity);
+            GameObject item = Instantiate(prefab, position, Quaternion.identity);
+            
+            // Holders
+            // Ghost wall holders
+            if (item.GetComponent<GhostWallHolder>() != null)
+            {
+                var holder = item.GetComponent<GhostWallHolder>();
+                foreach (var type in holder.myTilemaps)
+                {
+                    if (tilemapDictionary.TryGetValue(type, out GameObject wallmap))
+                    {
+                        var wall = wallmap.GetComponent<GhostWall>();
+                        if (wall != null)
+                            holder.walls.Add(wall);
+                    }
+                }
+            }
+            // Cannon Holders
+            else if (item.GetComponent<CannonHolder>() != null)
+            {
+                var cannonHolder = item.GetComponent<CannonHolder>();
+                cannonHolders.Add(cannonHolder);
+            }
+            // Cannons
+            else if (item.GetComponent<Cannon>() != null)
+            {
+                var cannon = item.GetComponent<Cannon>();
+                cannons.Add(cannon);
+            }
+        }
+
+        // Set cannon holder cannon lists
+        foreach (CannonHolder cannonHolder in cannonHolders)
+        {
+            cannonHolder.cannons = cannons;
         }
 
         // Tiles
@@ -54,14 +90,16 @@ public class LevelBuilder : MonoBehaviour
             TileBase tileBase = database.GetTile(tile.tileID);
             
             MyTilemap myTilemap = database.GetTilemap(tile.tileID);
-            if (!tilemapDictionary.TryGetValue(myTilemap, out Tilemap tilemap))
+            if (!tilemapDictionary.TryGetValue(myTilemap, out GameObject wallmap))
             {
                 Debug.LogError("No Tilemap assigned for id: " + tile.tileID);
                 continue;
             }
 
             Vector3 worldPos = new Vector3(tile.x, tile.y, 0);
-            if (tilemap == null) Debug.Log(tileBase.name);
+            if (wallmap == null) Debug.Log(tileBase.name);
+            
+            Tilemap tilemap = wallmap.GetComponent<Tilemap>();
             Vector3Int cellPos = tilemap.WorldToCell(worldPos);
 
             tilemap.SetTile(cellPos, tileBase);

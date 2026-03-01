@@ -1,8 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CannonHolder : Holder
 {
-    [SerializeField] Cannon[] cannons;
+    public List<Cannon> cannons;
 
     protected override void OnActivate()
     {
