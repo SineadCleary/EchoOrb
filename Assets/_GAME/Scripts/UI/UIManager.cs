@@ -27,6 +27,12 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void OpenGallery()
+    {
+        LevelLoader.currentLevel = null;
+        SceneManager.LoadScene(4);
+    }
+
     public void OpenPanel()
     {
         if (openPanel == null || closePanel == null) return;

@@ -50,16 +50,45 @@ public class EditorUI : MonoBehaviour
         editor.currentTool = LevelEditor.Tool.MOVE;
     }
 
-    // Save/load
-    public void SaveButton()
+    // Toggle element
+    public void ToggleElement(GameObject element)
     {
-        saveLoad.Save();
+        if (element.activeInHierarchy) element.SetActive(false);
+        else element.SetActive(true);
+    }
+
+    // Save/load
+    public void SaveButton(GameObject savePanel)
+    {
+        if (!saveLoad.isValidLevel())
+        {
+
+        }
+        else saveLoad.Save();
+        ToggleElement(savePanel);
+    }
+
+    public void SaveAndQuit()
+    {
+        if (!saveLoad.isValidLevel())
+        {
+
+        }
+        else saveLoad.Save();
+        SceneManager.LoadScene(4);
     }
 
     public void EnterPlayMode()
     {
-        LevelLoader.currentLevel = saveLoad.EditorObjectsToLevelData();
-        SceneManager.LoadScene(3);
+        if (!saveLoad.isValidLevel())
+        {
+
+        }
+        else
+        {
+            LevelLoader.currentLevel = saveLoad.EditorObjectsToLevelData();
+            SceneManager.LoadScene(3);
+        }
     }
 
     public void ClearAll()

@@ -102,4 +102,9 @@ public class SaveLoad : MonoBehaviour
         }
     }
 
+    // Validation
+    public bool isValidLevel()
+    {
+        return true;
+    }
 }
