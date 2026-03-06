@@ -20,6 +20,7 @@ public class LevelEditor : MonoBehaviour
     Vector2 mousePosWorld;
     bool pointerOnUI;
     bool pointerOnObject;
+    bool drawing;
 
     void Start()
     {
@@ -55,6 +56,8 @@ public class LevelEditor : MonoBehaviour
             }
         }
         
+        // Draw
+        if (drawing) Draw();
     }
 
     public void OnLeftMouse(InputAction.CallbackContext context)
@@ -67,31 +70,35 @@ public class LevelEditor : MonoBehaviour
                 mainCamera.StartDrag();
             if (context.canceled)
                 mainCamera.StopDrag();
-
-            return;
         }
 
-        // MOVE tool requires context.performed, but other tools do not
-        if (!context.performed) return;
-
-        switch(currentTool)
+        if (context.started)
         {
-            case Tool.PLACE:
-                if (pointerOnObject) return;
-                Instantiate(currentPlaceableItem.editorPrefab, mousePosWorld, Quaternion.identity, objectGroup.transform);
-                //currentTool = Tool.SELECT; // single placeable items (start/end)
+            drawing = true;
+            return;
+        }
+        if (context.canceled) 
+        {
+            drawing = false;
+            return;
+        }
+        // context.performed
+        switch (currentTool)
+        {
+            case Tool.MOVE:
+                if (context.started)
+                    mainCamera.StartDrag();
+                if (context.canceled)
+                    mainCamera.StopDrag();
                 break;
+
             case Tool.SELECT:
+                if (!context.performed) return;
                 TrySelectObject();
                 break;
-            case Tool.ERASE:
-                TrySelectObject();
-                if (selectedObject != null)
-                {
-                    Destroy(selectedObject);
-                }
-                break;
+
             case Tool.EYEDROP:
+                if (!context.performed) return;
                 TrySelectObject();
                 if (selectedObject != null)
                 {
@@ -103,8 +110,30 @@ public class LevelEditor : MonoBehaviour
                     }
                 }
                 break;
+
             default:
                 break;
+        }
+    }
+
+    void Draw()
+    {
+        switch (currentTool)
+        {
+            case Tool.PLACE:
+                if (pointerOnObject) return;
+                Instantiate(currentPlaceableItem.editorPrefab, mousePosWorld, Quaternion.identity, objectGroup.transform);
+                break;
+
+            case Tool.ERASE:
+                TrySelectObject();
+                if (selectedObject != null)
+                {
+                    Destroy(selectedObject);
+                }
+                break;
+
+            default: break;
         }
     }
 
