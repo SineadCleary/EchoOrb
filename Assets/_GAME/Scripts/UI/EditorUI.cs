@@ -15,7 +15,7 @@ public class EditorUI : MonoBehaviour
         if (placeableData != null)
         {
             editor.SwapPlaceableItem(placeableData);
-            editor.currentTool = LevelEditor.Tool.PLACE;
+            editor.SetCurrentTool(LevelEditor.Tool.PLACE);
         }
     }
 
@@ -28,27 +28,27 @@ public class EditorUI : MonoBehaviour
     // Tools
     public void SelectTool()
     {
-        editor.currentTool = LevelEditor.Tool.SELECT;
+        editor.SetCurrentTool(LevelEditor.Tool.SELECT);
     }
 
     public void PlaceTool()
     {
-        editor.currentTool = LevelEditor.Tool.PLACE;
+        editor.SetCurrentTool(LevelEditor.Tool.PLACE);
     }
     
     public void EraseTool()
     {
-        editor.currentTool = LevelEditor.Tool.ERASE;
+        editor.SetCurrentTool(LevelEditor.Tool.ERASE);
     }
 
     public void EyedropTool()
     {
-        editor.currentTool = LevelEditor.Tool.EYEDROP;
+        editor.SetCurrentTool(LevelEditor.Tool.EYEDROP);
     }
 
     public void MoveTool()
     {
-        editor.currentTool = LevelEditor.Tool.MOVE;
+        editor.SetCurrentTool(LevelEditor.Tool.MOVE);
     }
 
     // Toggle element

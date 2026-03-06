@@ -1,15 +1,16 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class LevelEditor : MonoBehaviour
 {
     [SerializeField] SO_Placeable currentPlaceableItem;
     public bool gridSnapping = true;
     [SerializeField] GameObject objectGroup;
-
     public enum Tool { PLACE, SELECT, ERASE, EYEDROP, MOVE }
-    public Tool currentTool = Tool.PLACE;
+    [SerializeField] Button[] buttons;
+    private Tool currentTool = Tool.PLACE;
     
     GameObject selectedObject;
     GameObject objectPreview;
@@ -102,7 +103,7 @@ public class LevelEditor : MonoBehaviour
                 TrySelectObject();
                 if (selectedObject != null)
                 {
-                    currentTool = Tool.PLACE;
+                    SetCurrentTool(Tool.PLACE);
                     Placeable placeable = selectedObject.GetComponent<Placeable>();
                     if (placeable != null)
                     {
@@ -160,6 +161,14 @@ public class LevelEditor : MonoBehaviour
         }
     }
 
+    public void SetCurrentTool(Tool tool)
+    {
+        currentTool = tool;
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].interactable = i != (int)tool;
+        }
+    }
 
     public void SwapPlaceableItem(Placeable placeable)
     {
