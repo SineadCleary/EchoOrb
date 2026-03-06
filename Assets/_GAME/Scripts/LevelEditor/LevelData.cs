@@ -5,14 +5,17 @@ using UnityEngine;
 public class LevelData
 {
     public string title;
+    public string author;
+    public string date;
     public Vector3 cameraPos;
     public float cameraZoom;
     public List<ItemData> items = new List<ItemData>();
     public List<TileData> tiles = new List<TileData>();
 
-    public LevelData(string title/*, Vector3 cameraPos, float cameraZoom*/)
+    public LevelData(string title, string author/*, Vector3 cameraPos, float cameraZoom*/)
     {
         this.title = title;
+        this.author = author;
         //this.cameraPos = cameraPos;
         //this.cameraZoom = cameraZoom;
     }

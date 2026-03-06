@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEngine;
 
@@ -25,12 +26,14 @@ public class SaveLoad : MonoBehaviour
     // used for loading game level from editor
     public LevelData EditorObjectsToLevelData()
     {
-        LevelData levelData = new LevelData(LevelLoader.currentLevel.title);
+        LevelData levelData = new LevelData(LevelLoader.currentLevel.title, LevelLoader.currentLevel.author);
 
         foreach (Placeable placeable in objectGroup.GetComponentsInChildren<Placeable>())
         {
             placeable.AddToLevelData(levelData);
         }
+
+        //levelData.date = DateTime.Now.ToString("d");
 
         // used in editor only
         levelData.cameraPos = mainCamera.transform.position;
@@ -56,7 +59,9 @@ public class SaveLoad : MonoBehaviour
     // LevelData -> JSON
     public void Save() 
     {
-        string json = JsonUtility.ToJson(EditorObjectsToLevelData(), true);
+        LevelData levelData = EditorObjectsToLevelData();
+        levelData.date = DateTime.Now.ToString("d");
+        string json = JsonUtility.ToJson(levelData, true);
         File.WriteAllText(path, json);
         Debug.Log("Saved level to: " + path);
     }

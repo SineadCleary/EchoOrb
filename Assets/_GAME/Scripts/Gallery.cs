@@ -1,7 +1,6 @@
 using System.IO;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Gallery : MonoBehaviour
 {
@@ -21,7 +20,17 @@ public class Gallery : MonoBehaviour
             // Title
             string title = Path.GetFileNameWithoutExtension(files[i]);
             card.name = title + "_card";
-            card.GetComponentInChildren<TextMeshProUGUI>().text = title;
+            card.GetComponentsInChildren<TextMeshProUGUI>()[0].text = title;
+
+            LevelData levelData = SaveLoad.LoadLevelDataFromJSON(Path.Combine(path, title + ".json"));
+
+            // Status
+
+            // Author
+            card.GetComponentsInChildren<TextMeshProUGUI>()[2].text = "by " + levelData.author;
+
+            // Date
+            card.GetComponentsInChildren<TextMeshProUGUI>()[3].text = levelData.date;
 
             // File path
             LevelCardButton[] buttons = card.GetComponentsInChildren<LevelCardButton>();
