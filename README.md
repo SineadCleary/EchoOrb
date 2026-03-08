@@ -1,4 +1,6 @@
 # EchoOrb
+Icons not included - must be placed in Assets/FlatIcon.
+
 ## Credits 
 Activation sound from Leszek_Szary on Pixabay: https://pixabay.com/sound-effects/teleport-14639/ 
 
@@ -11,4 +13,3 @@ Player damage sound from cabled_mess on Pixabay: https://pixabay.com/sound-effec
 Pickup Orb sound from twohoursago on Pixabay: https://pixabay.com/sound-effects/glass-bottle-clink-90671/ 
 
 Font from Catterio Sylt on dafont.com: https://www.dafont.com/ari-w9500.font?text=Echo+Orb+A&back=bitmap
-
