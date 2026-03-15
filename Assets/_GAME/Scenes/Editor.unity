@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: SwapItem
         m_Mode: 2
@@ -822,7 +822,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: SwapItem
         m_Mode: 2
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: SwapItem
         m_Mode: 2
@@ -1820,7 +1820,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: SwapItem
         m_Mode: 2
@@ -2090,7 +2090,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: SwapItem
         m_Mode: 2
@@ -2298,7 +2298,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: ToggleGridSnapping
         m_Mode: 1
@@ -2658,7 +2658,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: ClearAll
         m_Mode: 1
@@ -2866,7 +2866,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: SwapItem
         m_Mode: 2
@@ -3172,7 +3172,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: SaveButton
         m_Mode: 2
@@ -3305,7 +3305,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: EraseTool
         m_Mode: 1
@@ -4063,7 +4063,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: EnterPlayMode
         m_Mode: 1
@@ -4196,7 +4196,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305010}
+      - m_Target: {fileID: 1988733548}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OpenGallery
         m_Mode: 1
@@ -4541,7 +4541,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: SwapItem
         m_Mode: 2
@@ -4674,7 +4674,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: SwapItem
         m_Mode: 2
@@ -4854,7 +4854,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: SaveAndQuit
         m_Mode: 1
@@ -5771,7 +5771,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: SelectTool
         m_Mode: 1
@@ -5904,7 +5904,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: MoveTool
         m_Mode: 1
@@ -6166,67 +6166,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590214387}
   m_CullTransparentMesh: 1
---- !u!1 &1601305007
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1601305009}
-  - component: {fileID: 1601305008}
-  - component: {fileID: 1601305010}
-  m_Layer: 0
-  m_Name: UIManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1601305008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1601305007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f7b5ae94937ba04caa01e9c01f11fb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EditorUI
-  editor: {fileID: 1323658608}
-  saveLoad: {fileID: 1034324072}
---- !u!4 &1601305009
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1601305007}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1601305010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1601305007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b61e0bcdbdb7d684894010c29a7fca5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  openPanel: {fileID: 0}
-  closePanel: {fileID: 0}
 --- !u!1 &1631315672
 GameObject:
   m_ObjectHideFlags: 0
@@ -6663,7 +6602,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: SwapItem
         m_Mode: 2
@@ -7161,7 +7100,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: EyedropTool
         m_Mode: 1
@@ -7985,7 +7924,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: PlaceTool
         m_Mode: 1
@@ -8404,7 +8343,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1601305008}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: SwapItem
         m_Mode: 2
@@ -8728,6 +8667,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981214125}
   m_CullTransparentMesh: 1
+--- !u!1001 &1988733547
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4382536402810177938, guid: fd7a4853e11a17a43a9a78990d60ffb2, type: 3}
+      propertyPath: m_Name
+      value: UIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266963512327522695, guid: fd7a4853e11a17a43a9a78990d60ffb2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 967.8059
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266963512327522695, guid: fd7a4853e11a17a43a9a78990d60ffb2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 569.4508
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266963512327522695, guid: fd7a4853e11a17a43a9a78990d60ffb2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266963512327522695, guid: fd7a4853e11a17a43a9a78990d60ffb2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266963512327522695, guid: fd7a4853e11a17a43a9a78990d60ffb2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266963512327522695, guid: fd7a4853e11a17a43a9a78990d60ffb2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266963512327522695, guid: fd7a4853e11a17a43a9a78990d60ffb2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266963512327522695, guid: fd7a4853e11a17a43a9a78990d60ffb2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266963512327522695, guid: fd7a4853e11a17a43a9a78990d60ffb2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266963512327522695, guid: fd7a4853e11a17a43a9a78990d60ffb2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4382536402810177938, guid: fd7a4853e11a17a43a9a78990d60ffb2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1988733550}
+  m_SourcePrefab: {fileID: 100100000, guid: fd7a4853e11a17a43a9a78990d60ffb2, type: 3}
+--- !u!114 &1988733548 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1164986124928463803, guid: fd7a4853e11a17a43a9a78990d60ffb2, type: 3}
+  m_PrefabInstance: {fileID: 1988733547}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988733549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61e0bcdbdb7d684894010c29a7fca5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+--- !u!1 &1988733549 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4382536402810177938, guid: fd7a4853e11a17a43a9a78990d60ffb2, type: 3}
+  m_PrefabInstance: {fileID: 1988733547}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1988733550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988733549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f7b5ae94937ba04caa01e9c01f11fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EditorUI
+  editor: {fileID: 1323658608}
+  saveLoad: {fileID: 1034324072}
 --- !u!1 &1994999098
 GameObject:
   m_ObjectHideFlags: 0
@@ -8815,7 +8844,6 @@ GameObject:
   - component: {fileID: 2045858630}
   - component: {fileID: 2045858629}
   - component: {fileID: 2045858628}
-  - component: {fileID: 2045858631}
   m_Layer: 5
   m_Name: DotsButton
   m_TagString: Untagged
@@ -8887,7 +8915,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2045858631}
+      - m_Target: {fileID: 1988733550}
         m_TargetAssemblyTypeName: EditorUI, Assembly-CSharp
         m_MethodName: ToggleElement
         m_Mode: 2
@@ -8937,20 +8965,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045858626}
   m_CullTransparentMesh: 1
---- !u!114 &2045858631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2045858626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f7b5ae94937ba04caa01e9c01f11fb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EditorUI
-  editor: {fileID: 0}
-  saveLoad: {fileID: 0}
 --- !u!1 &2065740015
 GameObject:
   m_ObjectHideFlags: 0
@@ -9270,10 +9284,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 125467081}
+  - {fileID: 1988733547}
   - {fileID: 1323658609}
   - {fileID: 1484626283}
   - {fileID: 1933709921}
   - {fileID: 1383491008}
-  - {fileID: 1601305009}
   - {fileID: 1034324073}
   - {fileID: 1670914999}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SaveLoad : MonoBehaviour
 {
-    string path;
+    static string folderPath;
     [SerializeField] Transform objectGroup;
     [SerializeField] SO_Database database;
     [SerializeField] Camera mainCamera;
@@ -16,26 +16,27 @@ public class SaveLoad : MonoBehaviour
             Load(LevelLoader.currentLevel);
             string title = LevelLoader.currentLevel.title;
 
-            string folderPath = Path.Combine(Application.persistentDataPath, "Levels");
+            folderPath = Path.Combine(Application.persistentDataPath, "Levels");
             if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
-            path = Path.Combine(folderPath, title + ".json");
         }
     }
 
     // editor objects -> LevelData
-    // used for loading game level from editor
+    // used for saving, and entering play mode
     public LevelData EditorObjectsToLevelData()
     {
-        LevelData levelData = new LevelData(LevelLoader.currentLevel.title, LevelLoader.currentLevel.author);
+        // Get current levelData
+        LevelData levelData = LevelLoader.currentLevel;
 
+        // Clear and rebuild lists
+        levelData.items.Clear();
+        levelData.tiles.Clear();
         foreach (Placeable placeable in objectGroup.GetComponentsInChildren<Placeable>())
         {
             placeable.AddToLevelData(levelData);
         }
 
-        //levelData.date = DateTime.Now.ToString("d");
-
-        // used in editor only
+        // Update camera
         levelData.cameraPos = mainCamera.transform.position;
         levelData.cameraZoom = mainCamera.orthographicSize;
 
@@ -57,11 +58,21 @@ public class SaveLoad : MonoBehaviour
     }
 
     // LevelData -> JSON
-    public void Save() 
+    public static void Save(bool valid = false)
     {
-        LevelData levelData = EditorObjectsToLevelData();
+        if (LevelLoader.currentLevel == null)
+        {
+            Debug.LogWarning("Cannot save. LevelLoader.currentLevel is null");
+            return;
+        }
+        // Get level data 
+        LevelData levelData = LevelLoader.currentLevel;
+        // Only update date on save
         levelData.date = DateTime.Now.ToString("d");
+        levelData.complete = valid;
+        // Write to JSON
         string json = JsonUtility.ToJson(levelData, true);
+        string path = Path.Combine(folderPath, levelData.title + ".json");
         File.WriteAllText(path, json);
         Debug.Log("Saved level to: " + path);
     }

@@ -1,19 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] GameObject openPanel;
-    [SerializeField] GameObject closePanel;
+    [SerializeField] Toggle levelValid;
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
     }
 
     public void StartEditor()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
@@ -30,13 +30,19 @@ public class UIManager : MonoBehaviour
     public void OpenGallery()
     {
         LevelLoader.currentLevel = null;
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(2);
     }
 
-    public void OpenPanel()
+    public void SaveCurrentLevel()
     {
-        if (openPanel == null || closePanel == null) return;
-        openPanel.SetActive(true);
-        closePanel.SetActive(false);
+        bool valid = false;
+        if (levelValid != null && levelValid.gameObject.activeInHierarchy && levelValid.isOn) valid = true;
+        SaveLoad.Save(valid);
+    }
+
+    public void SaveCurrentLevelAndQuit()
+    {
+        SaveCurrentLevel();
+        OpenGallery();
     }
 }

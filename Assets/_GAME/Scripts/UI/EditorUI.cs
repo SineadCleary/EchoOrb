@@ -1,12 +1,16 @@
-using System.IO;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(UIManager))]
 public class EditorUI : MonoBehaviour
 {
     [SerializeField] LevelEditor editor;
-    [SerializeField] SaveLoad saveLoad;
+    [SerializeField] SaveLoad saveLoad; 
+    UIManager manager;
+
+    private void Start()
+    {
+        manager = GetComponent<UIManager>();
+    }
 
     // Placeables
     public void SwapItem(GameObject item)
@@ -61,35 +65,22 @@ public class EditorUI : MonoBehaviour
     // Save/load
     public void SaveButton(GameObject savePanel)
     {
-        if (!saveLoad.isValidLevel())
-        {
-
-        }
-        else saveLoad.Save();
+        saveLoad.EditorObjectsToLevelData();
+        SaveLoad.Save();
         ToggleElement(savePanel);
     }
 
     public void SaveAndQuit()
     {
-        if (!saveLoad.isValidLevel())
-        {
-
-        }
-        else saveLoad.Save();
-        SceneManager.LoadScene(4);
+        saveLoad.EditorObjectsToLevelData();
+        SaveLoad.Save();
+        manager.OpenGallery();
     }
 
     public void EnterPlayMode()
     {
-        if (!saveLoad.isValidLevel())
-        {
-
-        }
-        else
-        {
-            LevelLoader.currentLevel = saveLoad.EditorObjectsToLevelData();
-            SceneManager.LoadScene(3);
-        }
+        LevelLoader.currentLevel = saveLoad.EditorObjectsToLevelData();
+        manager.StartGame();
     }
 
     public void ClearAll()

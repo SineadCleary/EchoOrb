@@ -8,6 +8,7 @@ TagManager:
   - StartPoint
   - Enemy
   - AudioManager
+  - UIManager
   layers:
   - Default
   - TransparentFX

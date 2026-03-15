@@ -7,21 +7,22 @@ public class LevelData
     public string title;
     public string author;
     public string date;
+    public bool complete;
     public Vector3 cameraPos;
     public float cameraZoom;
     public List<ItemData> items = new List<ItemData>();
     public List<TileData> tiles = new List<TileData>();
 
-    public LevelData(string title, string author/*, Vector3 cameraPos, float cameraZoom*/)
+    public LevelData(string title, string author)
     {
         this.title = title;
         this.author = author;
-        //this.cameraPos = cameraPos;
-        //this.cameraZoom = cameraZoom;
+        cameraPos = new Vector3(0, 0, -10);
+        cameraZoom = 5;
+        complete = false;
     }
 }
 
-// Possibly combine ItemData and TileData if floats are not required...
 [System.Serializable]
 public class ItemData
 {

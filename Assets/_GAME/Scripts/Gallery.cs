@@ -1,6 +1,7 @@
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gallery : MonoBehaviour
 {
@@ -25,6 +26,11 @@ public class Gallery : MonoBehaviour
             LevelData levelData = SaveLoad.LoadLevelDataFromJSON(Path.Combine(path, title + ".json"));
 
             // Status
+            if (!levelData.complete)
+            {
+                card.GetComponentsInChildren<TextMeshProUGUI>()[1].text = "incomplete";
+                card.GetComponentsInChildren<Button>()[0].interactable = false;
+            }
 
             // Author
             card.GetComponentsInChildren<TextMeshProUGUI>()[2].text = "by " + levelData.author;

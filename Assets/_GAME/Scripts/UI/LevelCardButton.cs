@@ -1,22 +1,28 @@
 using System.IO;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelCardButton : MonoBehaviour
 {
     public string filepath;
+    UIManager manager;
+
+    private void Start()
+    {
+        manager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+    }
+
     public void Play()
     {
         if (string.IsNullOrEmpty(filepath)) return;
         LevelLoader.currentLevel = SaveLoad.LoadLevelDataFromJSON(filepath);
-        SceneManager.LoadScene(3);
+        manager.StartGame();
     }
 
     public void Edit()
     {
         if (string.IsNullOrEmpty(filepath)) return;
         LevelLoader.currentLevel = SaveLoad.LoadLevelDataFromJSON(filepath);
-        SceneManager.LoadScene(2);
+        manager.StartEditor();
     }
 
     public void Delete()
