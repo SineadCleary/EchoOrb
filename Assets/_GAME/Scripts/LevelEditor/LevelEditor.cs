@@ -23,6 +23,9 @@ public class LevelEditor : MonoBehaviour
     bool pointerOnObject;
     bool drawing;
 
+    public GameObject startPoint;
+    public int endPoints;
+
     void Start()
     {
         mainCamera = Camera.main.GetComponent<CameraMovement>();
@@ -123,13 +126,21 @@ public class LevelEditor : MonoBehaviour
         {
             case Tool.PLACE:
                 if (pointerOnObject) return;
-                Instantiate(currentPlaceableItem.editorPrefab, mousePosWorld, Quaternion.identity, objectGroup.transform);
+                GameObject obj = Instantiate(currentPlaceableItem.editorPrefab, mousePosWorld, Quaternion.identity, objectGroup.transform);
+                if (currentPlaceableItem.id == 101) endPoints++;
+                if (currentPlaceableItem.id == 100) // start point
+                {
+                    if (startPoint != null) Destroy(startPoint);
+                    startPoint = obj;
+                }
                 break;
 
             case Tool.ERASE:
                 TrySelectObject();
                 if (selectedObject != null)
                 {
+                    Item item = selectedObject.GetComponent<Item>();
+                    if (item != null && item.data.id == 101) endPoints--;
                     Destroy(selectedObject);
                 }
                 break;

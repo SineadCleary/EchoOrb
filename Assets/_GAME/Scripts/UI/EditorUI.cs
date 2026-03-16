@@ -5,11 +5,11 @@ public class EditorUI : MonoBehaviour
 {
     [SerializeField] LevelEditor editor;
     [SerializeField] SaveLoad saveLoad; 
-    UIManager manager;
+    UIManager uiManager;
 
     private void Start()
     {
-        manager = GetComponent<UIManager>();
+        uiManager = GetComponent<UIManager>();
     }
 
     // Placeables
@@ -74,13 +74,13 @@ public class EditorUI : MonoBehaviour
     {
         saveLoad.EditorObjectsToLevelData();
         SaveLoad.Save();
-        manager.OpenGallery();
+        uiManager.OpenGallery();
     }
 
     public void EnterPlayMode()
     {
         LevelLoader.currentLevel = saveLoad.EditorObjectsToLevelData();
-        manager.StartGame();
+        uiManager.StartGame();
     }
 
     public void ClearAll()

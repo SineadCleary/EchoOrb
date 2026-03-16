@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Net;
 using UnityEngine;
 
 public class SaveLoad : MonoBehaviour
@@ -8,6 +9,7 @@ public class SaveLoad : MonoBehaviour
     [SerializeField] Transform objectGroup;
     [SerializeField] SO_Database database;
     [SerializeField] Camera mainCamera;
+    [SerializeField] LevelEditor levelEditor;
 
     private void Start()
     {
@@ -101,7 +103,9 @@ public class SaveLoad : MonoBehaviour
         {
             GameObject prefab = database.GetEditorPrefab(item.prefabID);
             Vector3 pos = new Vector3(item.x, item.y, 0);
-            Instantiate(prefab, pos, Quaternion.identity, objectGroup);
+            GameObject obj = Instantiate(prefab, pos, Quaternion.identity, objectGroup);
+            if (item.prefabID == 100) levelEditor.startPoint = obj;
+            if (item.prefabID == 101) levelEditor.endPoints++;
         }
 
         // Setup Camera
@@ -112,10 +116,8 @@ public class SaveLoad : MonoBehaviour
     // Clear all editor placeables
     public void ClearAll()
     {
-        foreach(Transform item in objectGroup)
-        {
-            Destroy(item.gameObject);
-        }
+        levelEditor.endPoints = 0;
+        foreach (Transform item in objectGroup) Destroy(item.gameObject);
     }
 
     // Validation
