@@ -5,11 +5,23 @@ using UnityEngine;
 
 public class SaveLoad : MonoBehaviour
 {
-    static string folderPath;
     [SerializeField] Transform objectGroup;
     [SerializeField] SO_Database database;
     [SerializeField] Camera mainCamera;
     [SerializeField] LevelEditor levelEditor;
+
+    static string FolderPath
+    {
+        get
+        {
+            string path = Path.Combine(Application.persistentDataPath, "Levels");
+
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            return path;
+        }
+    }
 
     private void Start()
     {
@@ -17,9 +29,6 @@ public class SaveLoad : MonoBehaviour
         {
             Load(LevelLoader.currentLevel);
             string title = LevelLoader.currentLevel.title;
-
-            folderPath = Path.Combine(Application.persistentDataPath, "Levels");
-            if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
         }
     }
 
@@ -74,9 +83,21 @@ public class SaveLoad : MonoBehaviour
         levelData.complete = valid;
         // Write to JSON
         string json = JsonUtility.ToJson(levelData, true);
-        string path = Path.Combine(folderPath, levelData.title + ".json");
+        string path = Path.Combine(FolderPath, MakeFilename(levelData.title, levelData.author) + ".json");
         File.WriteAllText(path, json);
         Debug.Log("Saved level to: " + path);
+    }
+
+    public static string MakeFilename(string title, string author)
+    {
+        string name = $"{title}_{author}";
+        return string.Join("_", name.Split(Path.GetInvalidFileNameChars()));
+    }
+
+    public static bool FileExists(string filename)
+    {
+        string path = Path.Combine(FolderPath, filename + ".json");
+        return File.Exists(path);
     }
 
     // LevelData -> editor objects

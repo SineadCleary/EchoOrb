@@ -17,13 +17,15 @@ public class Gallery : MonoBehaviour
         for (int i=0; i<files.Length; i++)
         {
             GameObject card = Instantiate(levelCard, cardContainer);
-            
+
+            string filename = Path.GetFileName(files[i]);
+            LevelData levelData = SaveLoad.LoadLevelDataFromJSON(Path.Combine(path, filename));
+
             // Title
-            string title = Path.GetFileNameWithoutExtension(files[i]);
+            string title = levelData.title;
             card.name = title + "_card";
             card.GetComponentsInChildren<TextMeshProUGUI>()[0].text = title;
 
-            LevelData levelData = SaveLoad.LoadLevelDataFromJSON(Path.Combine(path, title + ".json"));
 
             // Status
             if (!levelData.complete)
