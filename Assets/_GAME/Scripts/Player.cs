@@ -33,14 +33,10 @@ public class Player : MonoBehaviour
     void OnMove(InputValue value)
     {
         moveDirection = value.Get<Vector2>().normalized;
-        if (moveDirection.x > 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if (moveDirection.x < 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
+
+        // Flip sprite
+        if (moveDirection.x > 0) transform.localScale = new Vector3(-1, 1, 1);
+        else if (moveDirection.x < 0) transform.localScale = new Vector3(1, 1, 1);
     }
 
     void OnActivate()

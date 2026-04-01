@@ -87,4 +87,9 @@ public class EditorUI : MonoBehaviour
     {
         saveLoad.ClearAll();
     }
+
+    //public void Undo()
+    //{
+    //    editor.Undo();
+    //}
 }

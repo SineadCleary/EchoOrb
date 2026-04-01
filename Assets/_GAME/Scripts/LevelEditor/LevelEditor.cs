@@ -7,7 +7,7 @@ public class LevelEditor : MonoBehaviour
 {
     [SerializeField] SO_Placeable currentPlaceableItem;
     public bool gridSnapping = true;
-    [SerializeField] GameObject objectGroup;
+    public GameObject objectGroup;
     public enum Tool { PLACE, SELECT, ERASE, EYEDROP, MOVE }
     [SerializeField] Button[] buttons;
     private Tool currentTool = Tool.PLACE;
@@ -137,12 +137,11 @@ public class LevelEditor : MonoBehaviour
 
             case Tool.ERASE:
                 TrySelectObject();
-                if (selectedObject != null)
-                {
-                    Item item = selectedObject.GetComponent<Item>();
-                    if (item != null && item.data.id == 101) endPoints--;
-                    Destroy(selectedObject);
-                }
+                if (selectedObject == null) return;
+
+                Item item = selectedObject.GetComponent<Item>();
+                if (item != null && item.data.id == 101) endPoints--;
+                Destroy(selectedObject);
                 break;
 
             default: break;
@@ -196,5 +195,11 @@ public class LevelEditor : MonoBehaviour
         objectPreview = Instantiate(prefab, Vector3.zero, Quaternion.identity);
         objectPreview.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.35f);
         objectPreview.GetComponent<Collider2D>().enabled = false;
+    }
+
+    public void ClearAll()
+    {
+        endPoints = 0;
+        foreach (Transform item in objectGroup.transform) Destroy(item.gameObject);
     }
 }

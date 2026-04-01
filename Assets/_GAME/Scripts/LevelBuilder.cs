@@ -7,6 +7,7 @@ public class LevelBuilder : MonoBehaviour
     [SerializeField] SO_Database database;
     [SerializeField] GameObject player;
     [SerializeField] GameManager gameManager;
+    [SerializeField] GridManager gridManager;
     [Header("Tilemaps")]
     [SerializeField] GameObject groundTilemap;
     [SerializeField] GameObject wallTilemap;
@@ -104,6 +105,9 @@ public class LevelBuilder : MonoBehaviour
 
             tilemap.SetTile(cellPos, tileBase);
         }
+
+        // Setup grid
+        gridManager.SetupGrid();
 
         // Player
         startPoint = GameObject.FindGameObjectWithTag("StartPoint");

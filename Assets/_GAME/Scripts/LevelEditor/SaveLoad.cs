@@ -137,8 +137,7 @@ public class SaveLoad : MonoBehaviour
     // Clear all editor placeables
     public void ClearAll()
     {
-        levelEditor.endPoints = 0;
-        foreach (Transform item in objectGroup) Destroy(item.gameObject);
+        levelEditor.ClearAll();
     }
 
     // Validation
