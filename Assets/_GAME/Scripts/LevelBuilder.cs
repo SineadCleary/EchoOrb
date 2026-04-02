@@ -27,6 +27,7 @@ public class LevelBuilder : MonoBehaviour
     {
         tilemapDictionary = new Dictionary<MyTilemap, GameObject>
         {
+            { MyTilemap.Ground, groundTilemap },
             { MyTilemap.Wall, wallTilemap },
             { MyTilemap.GreenWall_A, greenWallATilemap },
             { MyTilemap.GreenWall_B, greenWallBTilemap },

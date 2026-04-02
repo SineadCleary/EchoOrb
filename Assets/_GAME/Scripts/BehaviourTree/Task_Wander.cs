@@ -101,17 +101,6 @@ public class Task_Wander : Node
 
         while (attempts < maxAttempts)
         {
-            // 1
-            //int x = (int)transform.position.x + Random.Range(-5, 6);
-            //int y = (int)transform.position.y + Random.Range(-5, 6);
-
-            //x = Mathf.Clamp(x, (int)grid.GetOrigin().x, grid.GetWidth() - 1);
-            //y = Mathf.Clamp(y, (int)grid.GetOrigin().y, grid.GetHeight() - 1);
-
-            // 2
-            //int x = Random.Range((int)grid.GetOrigin().x, grid.GetWidth());
-            //int y = Random.Range((int)grid.GetOrigin().y, grid.GetHeight());
-
             int x, y;
             Vector3 randomOffset = Random.insideUnitCircle * 4;
             randomOffset.z = 0;

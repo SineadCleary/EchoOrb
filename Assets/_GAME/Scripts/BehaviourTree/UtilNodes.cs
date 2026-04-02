@@ -10,7 +10,7 @@ namespace BehaviourTree
 
         public override NodeState Evaluate()
         {
-            bool anyChildIsRunning = false;
+            //bool anyChildIsRunning = false;
             foreach (Node node in children)
             {
                 switch(node.Evaluate())
@@ -21,15 +21,15 @@ namespace BehaviourTree
                     case NodeState.SUCCESS:
                         continue;
                     case NodeState.RUNNING:
-                        anyChildIsRunning = true;
-                        continue;
-                    default:
-                        state = NodeState.SUCCESS;
+                        state = NodeState.RUNNING;
                         return state;
+                    //default:
+                    //    state = NodeState.SUCCESS;
+                    //    return state;
                 }
             }
 
-            state = anyChildIsRunning ? NodeState.RUNNING : NodeState.SUCCESS;
+            state = NodeState.SUCCESS;
             return state;
         }
     }

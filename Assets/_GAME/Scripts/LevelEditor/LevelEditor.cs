@@ -15,12 +15,16 @@ public class LevelEditor : MonoBehaviour
     GameObject selectedObject;
     GameObject objectPreview;
 
+    [SerializeField] LayerMask objectMask;
+    [SerializeField] LayerMask floorMask;
+
     CameraMovement mainCamera;
 
     Vector2 mousePosScreen;
     Vector2 mousePosWorld;
     bool pointerOnUI;
     bool pointerOnObject;
+    bool pointerOnFloor;
     bool drawing;
 
     public GameObject startPoint;
@@ -40,7 +44,8 @@ public class LevelEditor : MonoBehaviour
         if (gridSnapping) mousePosWorld = new Vector2(Mathf.RoundToInt(mousePosWorld.x), Mathf.RoundToInt(mousePosWorld.y));
         
         pointerOnUI = EventSystem.current.IsPointerOverGameObject();
-        pointerOnObject = Physics2D.OverlapPoint(mousePosWorld);
+        pointerOnObject = Physics2D.OverlapPoint(mousePosWorld, objectMask);
+        pointerOnFloor = Physics2D.OverlapPoint(mousePosWorld, floorMask);
 
         // Object Preview
         if (currentTool == Tool.PLACE)
@@ -125,10 +130,22 @@ public class LevelEditor : MonoBehaviour
         switch (currentTool)
         {
             case Tool.PLACE:
+                // Place floor
+                if (currentPlaceableItem.id == 11)
+                {
+                    if (pointerOnFloor) return;
+                    Instantiate(currentPlaceableItem.editorPrefab, mousePosWorld, Quaternion.identity, objectGroup.transform);
+                    return;
+                }
+
+                // Place other tiles and items
                 if (pointerOnObject) return;
+
                 GameObject obj = Instantiate(currentPlaceableItem.editorPrefab, mousePosWorld, Quaternion.identity, objectGroup.transform);
+
+                // start/end points
                 if (currentPlaceableItem.id == 101) endPoints++;
-                if (currentPlaceableItem.id == 100) // start point
+                if (currentPlaceableItem.id == 100)
                 {
                     if (startPoint != null) Destroy(startPoint);
                     startPoint = obj;
