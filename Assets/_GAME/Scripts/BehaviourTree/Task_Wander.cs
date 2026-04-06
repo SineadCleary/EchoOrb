@@ -2,10 +2,13 @@ using BehaviourTree;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Task_Wander : Node
 {
     private UnityEngine.Transform transform;
+    private Animator animator;
 
     private float speed;
 
@@ -25,24 +28,28 @@ public class Task_Wander : Node
         this.minWait = minWait;
         this.maxWait = maxWait;
         waitTime = Random.Range(minWait, maxWait);
+        animator = transform.GetComponent<Animator>();
     }
 
     public override NodeState Evaluate()
     {
+        // Waiting
         if (waiting)
         {
-            //Debug.Log("waiting");
+            if (animator != null)
+            {
+                animator.SetBool("isMoving", false);
+            }
             waitCounter += Time.deltaTime;
             if (waitCounter > waitTime)
             {
-                //Debug.Log("done: " + waitTime);
                 waiting = false;
                 SetRandomTarget();
             }
         }
+        // Moving
         else
         {
-            //Debug.Log("moving");
             HandleMovement();
         }
 
@@ -57,7 +64,16 @@ public class Task_Wander : Node
             Vector3 targetPosition = pathVectorList[currentPathIndex];
             if (Vector3.Distance(transform.position, targetPosition) > 0.05f)
             {
-                //Vector3 moveDir = (targetPosition - transform.position).normalized; // used for animation
+                if (animator != null)
+                {
+                    animator.SetBool("isMoving", true);
+
+                    // Flip sprite
+                    Vector3 moveDir = (targetPosition - transform.position).normalized;
+                    // Flip sprite
+                    if (moveDir.x > 0) transform.localScale = new Vector3(-1, 1, 1);
+                    else if (moveDir.x < 0) transform.localScale = new Vector3(1, 1, 1);
+                }
                 transform.position = Vector3.MoveTowards(
                     transform.position,
                     targetPosition,

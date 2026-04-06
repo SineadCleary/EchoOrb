@@ -3,7 +3,10 @@ using BehaviourTree;
 
 public class Task_PlaceOrb : Node
 {
-    public Task_PlaceOrb() { }
+    private Animator animator;
+    public Task_PlaceOrb(Transform transfomrm) {
+        animator = transfomrm.GetComponent<Animator>();
+    }
 
     public override NodeState Evaluate()
     {
@@ -26,6 +29,11 @@ public class Task_PlaceOrb : Node
         SetData("hasOrb", false);
         holder.SetPowered(true);
 
+        if (animator != null)
+        {
+            animator.SetBool("hasOrb", false);
+        }
+
         SetData("lastHolder", holder);
         ClearData("holder");
         ClearData("holderPosition");
@@ -37,7 +45,11 @@ public class Task_PlaceOrb : Node
 
 public class Task_TakeOrb : Node
 {
-    public Task_TakeOrb() { }
+    private Animator animator;
+    public Task_TakeOrb(Transform transform)
+    {
+        animator = transform.GetComponent<Animator>();
+    }
 
     public override NodeState Evaluate()
     {
@@ -59,6 +71,11 @@ public class Task_TakeOrb : Node
         Debug.Log("Take");
         SetData("hasOrb", true);
         holder.SetPowered(false);
+
+        if (animator != null)
+        {
+            animator.SetBool("hasOrb", true);
+        }
 
         SetData("lastHolder", holder);
         ClearData("holder");

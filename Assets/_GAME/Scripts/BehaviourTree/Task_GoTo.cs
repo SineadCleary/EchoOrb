@@ -1,5 +1,6 @@
 using BehaviourTree;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Task_GoTo : Node
@@ -9,11 +10,13 @@ public class Task_GoTo : Node
     private bool hasValidPath;
     private int currentPathIndex;
     private List<Vector3> pathVectorList;
+    private Animator animator;
 
     public Task_GoTo(float speed, UnityEngine.Transform transform)
     {
         this.speed = speed;
         this.transform = transform;
+        animator = transform.GetComponent<Animator>();
     }
 
     public override NodeState Evaluate()
@@ -48,7 +51,16 @@ public class Task_GoTo : Node
             Vector3 targetPosition = pathVectorList[currentPathIndex];
             if (Vector3.Distance(transform.position, targetPosition) > 0.05f)
             {
-                //Vector3 moveDir = (targetPosition - transform.position).normalized; // used for animation
+                if (animator != null)
+                {
+                    animator.SetBool("isMoving", true);
+
+                    // Flip sprite
+                    Vector3 moveDir = (targetPosition - transform.position).normalized;
+                    // Flip sprite
+                    if (moveDir.x > 0) transform.localScale = new Vector3(-1, 1, 1);
+                    else if (moveDir.x < 0) transform.localScale = new Vector3(1, 1, 1);
+                }
                 transform.position = Vector3.MoveTowards(
                     transform.position,
                     targetPosition,
@@ -90,6 +102,10 @@ public class Task_GoTo : Node
 
     private void StopMoving()
     {
+        if (animator != null)
+        {
+            animator.SetBool("isMoving", false);
+        }
         pathVectorList = null;
         hasValidPath = false;
     }

@@ -84,8 +84,8 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 834067115, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
-  m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  m_Sprite: {fileID: 1965204277, guid: 16016b28b46894941a68405760287ff9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d949856d78147ed47b59c3b267c43b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BT_DisguisedCreature
-  radius: 2
+  radius: 4
 --- !u!95 &3437529944848645681
 Animator:
   serializedVersion: 7

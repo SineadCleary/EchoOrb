@@ -11,16 +11,19 @@ public class BT_MischeviousCreature : BTree
             new Sequence(new List<Node>
             {
                 new Check_Value("hasOrb"), // if has orb
+                new Task_SetAnimationBool("hasOrb", true, transform),
                 new Check_CanFindHolder(false), // empty holder
                 new Task_GoTo(5f, transform),
-                new Task_PlaceOrb(),
+                new Task_PlaceOrb(transform),
             }),
             new Sequence(new List<Node>
             {
-                new Inverter(new Check_Value("hasOrb")), // if not has orb
+                new Inverter(
+                    new Check_Value("hasOrb")), // if not has orb
+                new Task_SetAnimationBool("hasOrb", false, transform),
                 new Check_CanFindHolder(true), // occupied holder
                 new Task_GoTo(5f, transform),
-                new Task_TakeOrb(),
+                new Task_TakeOrb(transform),
             }),
             new Task_Wander(5f, transform, 1, 5),
         });
