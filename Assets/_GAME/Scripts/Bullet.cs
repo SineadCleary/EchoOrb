@@ -26,10 +26,15 @@ public class Bullet : MonoBehaviour
         {
             gameManager.AddHealth(-damage);
         }
-        else if (collision.CompareTag("Enemy"))
+        else if (collision.CompareTag("Creature"))
         {
-            // hit enemy
-            collision.gameObject.GetComponent<SimpleEnemyMovement>().TakeDamage(damage);
+            CreatureHealth creature = collision.gameObject.GetComponent<CreatureHealth>();
+            if (creature == null)
+            {
+                Debug.LogError("Creature: " + collision.name + " does not have attached CreatureHealth.");
+                return;
+            }
+            creature.TakeDamage(damage);
         }
         Destroy(gameObject);
     }

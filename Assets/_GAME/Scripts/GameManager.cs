@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         }
         playerHealth += healthPoints;
         if (playerHealth > 100) playerHealth = 100;
-        else if (playerHealth < 0)
+        else if (playerHealth <= 0)
         {
             playerHealth = 0;
             PlayerDeath();
