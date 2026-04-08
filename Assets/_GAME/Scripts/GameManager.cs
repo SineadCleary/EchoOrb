@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     GameObject player;
     public int numOrbs {  get; private set; }
     public int playerHealth { get; private set; } = 100;
+    public bool rageMode;
 
     private void Start()
     {

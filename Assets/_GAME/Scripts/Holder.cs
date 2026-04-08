@@ -4,9 +4,11 @@ using UnityEngine.Events;
 
 public abstract class Holder : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     AudioSource audioSource;
-    Player player; 
+    Player player;
+    protected GameManager gameManager;
+
     public bool powered { get; private set; }
     public bool near;
     [SerializeField] Sprite sprite_holder;
@@ -20,12 +22,13 @@ public abstract class Holder : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
-    private void Start()
+    protected void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        spriteRenderer = gameObject.GetComponentInParent<SpriteRenderer>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         SetSprite();
     }
 

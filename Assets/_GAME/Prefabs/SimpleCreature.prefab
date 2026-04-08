@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 8118595867042876444}
   - component: {fileID: 3558836614451670864}
   - component: {fileID: 3627415987376761509}
-  - component: {fileID: 7995521360036674664}
   - component: {fileID: 3437529944848645681}
   - component: {fileID: 3732137943717796969}
   - component: {fileID: -5981255228909430797}
   - component: {fileID: 3767795238168799914}
+  - component: {fileID: 4247461043858689569}
   m_Layer: 10
-  m_Name: DisguisedEnemy
+  m_Name: SimpleCreature
   m_TagString: Creature
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 2107118368, guid: 16016b28b46894941a68405760287ff9, type: 3}
+  m_Sprite: {fileID: 7881166437498641139, guid: 16016b28b46894941a68405760287ff9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,19 +124,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7995521360036674664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647659712766487818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d949856d78147ed47b59c3b267c43b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BT_DisguisedCreature
-  radius: 4
 --- !u!95 &3437529944848645681
 Animator:
   serializedVersion: 7
@@ -147,7 +134,7 @@ Animator:
   m_GameObject: {fileID: 1647659712766487818}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6017fbb0947e50f419c6151257a98b9a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0dd3fe4f0f3b7784f9ac6c62fcf173dc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -226,4 +213,15 @@ MonoBehaviour:
   attackDistance: 1
   attackDamage: 20
   attackCooldown: 1.1
-  ragedAttackOnly: 1
+--- !u!114 &4247461043858689569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647659712766487818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47f5553e70da5c428444429ab59f4bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BT_SimpleCreature
