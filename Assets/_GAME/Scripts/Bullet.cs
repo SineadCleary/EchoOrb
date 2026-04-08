@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        moveDirection = transform.up.normalized;
+        if (moveDirection == Vector2.zero) moveDirection = transform.up.normalized;
         myRigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -37,5 +37,10 @@ public class Bullet : MonoBehaviour
             creature.TakeDamage(damage);
         }
         Destroy(gameObject);
+    }
+
+    public void SetMoveDirection(Vector2 direction)
+    {
+        moveDirection = direction;
     }
 }
