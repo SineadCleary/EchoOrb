@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1289724890, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
+  m_Sprite: {fileID: 3319714417232543116, guid: 44e7d53993af3724a86543e02e2a5e68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -144,10 +144,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CannonHolder
   near: 0
-  sprite_holder: {fileID: -1289724890, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
-  sprite_holder_orb: {fileID: -1258017920, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
-  sprite_holder_hilight: {fileID: 1378136374, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
-  sprite_holder_orb_hilight: {fileID: -1575697260, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
+  sprite_holder: {fileID: 3319714417232543116, guid: 44e7d53993af3724a86543e02e2a5e68, type: 3}
+  sprite_holder_orb: {fileID: -4178606984527723397, guid: 44e7d53993af3724a86543e02e2a5e68, type: 3}
+  sprite_holder_hilight: {fileID: 5223757114977177642, guid: 44e7d53993af3724a86543e02e2a5e68, type: 3}
+  sprite_holder_orb_hilight: {fileID: 3045056062814082897, guid: 44e7d53993af3724a86543e02e2a5e68, type: 3}
   placeOrbSound: {fileID: 8300000, guid: 5c8aa2138851c494cbb081978d3f5009, type: 3}
   takeOrbSound: {fileID: 8300000, guid: 97e8e214dc1a24749871415f9327c94c, type: 3}
   cannons: []

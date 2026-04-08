@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 747650689028828258, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
+  m_Sprite: {fileID: 1934556483, guid: 2ae7fbeb48da1b04ab5223757367815a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -144,10 +144,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GhostWallHolder
   near: 0
-  sprite_holder: {fileID: 747650689028828258, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
-  sprite_holder_orb: {fileID: -7500022394721711570, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
-  sprite_holder_hilight: {fileID: 1751950808849329563, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
-  sprite_holder_orb_hilight: {fileID: -1223483047933381903, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
+  sprite_holder: {fileID: 1934556483, guid: 2ae7fbeb48da1b04ab5223757367815a, type: 3}
+  sprite_holder_orb: {fileID: -541777288, guid: 2ae7fbeb48da1b04ab5223757367815a, type: 3}
+  sprite_holder_hilight: {fileID: -474373621, guid: 2ae7fbeb48da1b04ab5223757367815a, type: 3}
+  sprite_holder_orb_hilight: {fileID: 1152458028, guid: 2ae7fbeb48da1b04ab5223757367815a, type: 3}
   placeOrbSound: {fileID: 8300000, guid: 5c8aa2138851c494cbb081978d3f5009, type: 3}
   takeOrbSound: {fileID: 8300000, guid: 97e8e214dc1a24749871415f9327c94c, type: 3}
   myTilemaps: 0500000006000000

@@ -15,6 +15,10 @@ public class LevelBuilder : MonoBehaviour
     [SerializeField] GameObject greenWallBTilemap;
     [SerializeField] GameObject purpleWallATilemap;
     [SerializeField] GameObject purpleWallBTilemap;
+    [SerializeField] GameObject redWallATilemap;
+    [SerializeField] GameObject redWallBTilemap;
+    [SerializeField] GameObject yellowWallATilemap;
+    [SerializeField] GameObject yellowWallBTilemap;
 
     private Dictionary<MyTilemap, GameObject> tilemapDictionary;
     private List<Cannon> cannons = new List<Cannon>();
@@ -32,7 +36,11 @@ public class LevelBuilder : MonoBehaviour
             { MyTilemap.GreenWall_A, greenWallATilemap },
             { MyTilemap.GreenWall_B, greenWallBTilemap },
             { MyTilemap.PurpleWall_A, purpleWallATilemap },
-            { MyTilemap.PurpleWall_B, purpleWallBTilemap }
+            { MyTilemap.PurpleWall_B, purpleWallBTilemap },
+            { MyTilemap.RedWall_A, redWallATilemap },
+            { MyTilemap.RedWall_B, redWallBTilemap },
+            { MyTilemap.YellowWall_A, yellowWallATilemap },
+            { MyTilemap.YellowWall_B, yellowWallBTilemap },
         };
     }
 

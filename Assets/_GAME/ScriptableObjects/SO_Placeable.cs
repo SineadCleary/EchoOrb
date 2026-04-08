@@ -22,4 +22,8 @@ public enum MyTilemap
     GreenWall_B,
     PurpleWall_A,
     PurpleWall_B,
+    RedWall_A,
+    RedWall_B,
+    YellowWall_A,
+    YellowWall_B,
 }

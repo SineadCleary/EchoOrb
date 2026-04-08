@@ -38,8 +38,10 @@ public class GameManager : MonoBehaviour
 
     public int AddHealth(int healthPoints)
     {
+        // Minus - Damage
         if (healthPoints < 0)
         {
+            player.GetComponent<Player>().Hurt();
             audioSource.PlayOneShot(playerHurtSound);
         }
         playerHealth += healthPoints;
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
         {
             playerHealth = 0;
             PlayerDeath();
+            player.GetComponent<Player>().Die();
         }
         healthText.text = "Health: " + playerHealth;
         return playerHealth;

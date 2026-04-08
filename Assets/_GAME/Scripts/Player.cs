@@ -6,12 +6,15 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 10f;
     Rigidbody2D myRigidbody;
+    SpriteRenderer mySpriteRenderer;
+    Animator myAnimator;
     Vector2 moveDirection;
     
 
     GameManager gameManager;
     AudioSource myAudioSource;
     [SerializeField] AudioClip activateSound;
+    [SerializeField] Sprite death;
 
     public Holder nearHolder;
 
@@ -20,13 +23,30 @@ public class Player : MonoBehaviour
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
         myAudioSource = GetComponent<AudioSource>();
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+    }
+
+    private void Update()
+    {
+        myAnimator.SetBool("IsMoving", myRigidbody.linearVelocity.sqrMagnitude > 0.01f);
     }
 
     private void FixedUpdate()
     {
         myRigidbody.linearVelocity = moveDirection * moveSpeed;
+    }
+
+    public void Hurt()
+    {
+        myAnimator.SetTrigger("Hurt");
+    }
+
+    public void Die()
+    {
+        mySpriteRenderer.sprite = death;
     }
 
     // Input
@@ -41,6 +61,7 @@ public class Player : MonoBehaviour
 
     void OnActivate()
     {
+        myAnimator.SetTrigger("Activate");
         myAudioSource.PlayOneShot(activateSound);
         activateEvent.Invoke();
     }

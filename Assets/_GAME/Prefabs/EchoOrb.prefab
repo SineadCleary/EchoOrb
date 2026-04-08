@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8854039401005375694}
   - component: {fileID: 635078475801253800}
   - component: {fileID: 5626636051690053681}
+  - component: {fileID: 5981388558465458487}
   m_Layer: 6
   m_Name: EchoOrb
   m_TagString: Untagged
@@ -36,6 +37,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8854039401005375694
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -81,7 +83,8 @@ SpriteRenderer:
   m_SortingLayerID: 1776717359
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 834067115, guid: f55475309efe3c44ba3ea51f71f41ac4, type: 3}
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -7073068853103503579, guid: 44e7d53993af3724a86543e02e2a5e68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,7 +93,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &635078475801253800
 CircleCollider2D:
@@ -141,3 +143,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EchoOrb
   pickupSound: {fileID: 8300000, guid: 9386b83b170d9434a8504487c15755c8, type: 3}
+--- !u!95 &5981388558465458487
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2926648309421373310}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 96496cc1edffa42479aebf68ae88ab34, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

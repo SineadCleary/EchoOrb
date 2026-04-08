@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4548752099438773142}
   - component: {fileID: 2083822257760755203}
   - component: {fileID: 3761264222838850562}
+  - component: {fileID: 6808169236244176295}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -167,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 10
   activateSound: {fileID: 8300000, guid: 1a2e2b0dbc61c06468be70adcb40637b, type: 3}
+  death: {fileID: -964824239653993824, guid: 6f8fe547135cb3142a5548a9ebcb0c56, type: 3}
   nearHolder: {fileID: 0}
   activateEvent:
     m_PersistentCalls:
@@ -305,3 +307,25 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.56, y: 1}
   m_Direction: 0
+--- !u!95 &6808169236244176295
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8355610678253031354}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f96ee9a3366c74c4f8b8a8d50bce777c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
