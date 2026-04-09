@@ -134,7 +134,7 @@ public class Task_Wander : Node
 
                 if (testPath != null && testPath.Count > 0)
                 {
-                    // valid target found
+                    // valid target moving
                     SetTargetWorldPosition(worldPos);
                     //Debug.Log(worldPos);
                     //Debug.DrawRay(transform.position, worldPos, Color.red, 4f);

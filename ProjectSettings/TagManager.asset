@@ -24,7 +24,7 @@ TagManager:
   - Creature
   - Projectile
   - Trap
-  - 
+  - NonWalkable
   - 
   - 
   - 

@@ -26,7 +26,7 @@ public class SO_Database : ScriptableObject
 
     public GameObject GetEditorPrefab(int id)
     {
-        // TryGetValue(): checks for id: returns true if found, false if not found
+        // TryGetValue(): checks for id: returns true if moving, false if not moving
         // out: method assigns value 
         if (dictionary.TryGetValue(id, out var item)) 
         {

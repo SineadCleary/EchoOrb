@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -8,9 +9,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private int width = 58;
     [SerializeField] private int height = 31;
     [Header("Tilemaps")]
-    // Ghost wall tilemaps
-    [SerializeField] private Tilemap wallsTilemap;
-
+    [SerializeField] private List<Tilemap> nonWalkableTilemaps;
 
     private void Awake()
     {
@@ -33,11 +32,19 @@ public class GridManager : MonoBehaviour
                 PathNode node = grid.GetGridObject(x, y);
 
                 Vector3 worldPos = grid.GetWorldPosition(x, y);
-                Vector3Int cell = wallsTilemap.WorldToCell(worldPos);
+                Vector3Int cell = nonWalkableTilemaps[0].WorldToCell(worldPos);
 
-                bool hasWall = wallsTilemap.HasTile(cell);
+                bool walkable = true;
+                foreach (var tilemap in nonWalkableTilemaps)
+                {
+                    if (tilemap.HasTile(cell))
+                    {
+                        walkable = false;
+                        break;
+                    }
+                }
 
-                node.isWalkable = !hasWall;
+                node.isWalkable = walkable;
             }
         }
     }

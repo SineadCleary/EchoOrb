@@ -102,7 +102,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647659712766487818}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -179,5 +179,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6c7bfb7aa111145a2866b68e028730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrapBlock
-  moveSpeed: 3
+  moveSpeed: 8
   rayLength: 10

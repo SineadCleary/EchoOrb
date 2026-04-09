@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 3717900576528294924}
   - component: {fileID: 3717900576528294923}
   - component: {fileID: 3717900576528294922}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GreenWall_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1178,7 +1178,7 @@ GameObject:
   - component: {fileID: 3143791742639264442}
   - component: {fileID: 3143791742639264441}
   - component: {fileID: 3143791742639264440}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: WallTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2057,7 +2057,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridManager
   width: 58
   height: 31
-  wallsTilemap: {fileID: 3143791742639264439}
+  nonWalkableTilemaps:
+  - {fileID: 3143791742639264439}
+  - {fileID: 3717900576528294927}
+  - {fileID: 7843892295272982560}
+  - {fileID: 1540028898}
+  - {fileID: 1336378859}
 --- !u!4 &464348922
 Transform:
   m_ObjectHideFlags: 0
@@ -3914,6 +3919,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8355610678253031354, guid: d7bdafe494410f54785da295036c1a42, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -4344,7 +4353,7 @@ GameObject:
   - component: {fileID: 1166908813609888115}
   - component: {fileID: 1166908813609888117}
   - component: {fileID: 1166908813609888116}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4640,7 +4649,7 @@ GameObject:
   - component: {fileID: 1336378856}
   - component: {fileID: 1336378855}
   - component: {fileID: 1336378854}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: YellowWall_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5038,7 +5047,7 @@ GameObject:
   - component: {fileID: 1540028895}
   - component: {fileID: 1540028894}
   - component: {fileID: 1540028893}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RedWall_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6574,7 +6583,7 @@ GameObject:
   - component: {fileID: 7843892295272982557}
   - component: {fileID: 7843892295272982556}
   - component: {fileID: 7843892295272982555}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PurpleWall_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
