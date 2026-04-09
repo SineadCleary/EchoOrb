@@ -4,9 +4,9 @@ using UnityEngine.Events;
 
 public abstract class Holder : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer;
+    SpriteRenderer spriteRenderer;
     AudioSource audioSource;
-    Player player;
+    protected Player player;
     protected GameManager gameManager;
 
     public bool powered { get; private set; }
@@ -19,25 +19,25 @@ public abstract class Holder : MonoBehaviour
     [SerializeField] AudioClip takeOrbSound;
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-    }
-
-    protected void Start()
-    {
         audioSource = GetComponent<AudioSource>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+    }
+
+    protected virtual void Start()
+    {
         SetSprite();
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         player.activateEvent.AddListener(Activate);
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         player.activateEvent.RemoveListener(Activate);
     }
