@@ -123,7 +123,7 @@ public class LevelBuilder : MonoBehaviour
         if (startPoint != null) startPosition = startPoint.transform.position;
         else startPosition = Vector3.zero;
         player.transform.position = startPosition;
-        player.SetActive(true);
+        player.GetComponent<Collider2D>().enabled = true;
     }
 }
 

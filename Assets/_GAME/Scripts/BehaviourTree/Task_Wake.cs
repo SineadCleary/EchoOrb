@@ -4,6 +4,9 @@ using BehaviourTree;
 public class Task_Wake : Node
 {
     private Animator animator;
+    private float delay = 0.5f;
+    private float timeStarted;
+    private bool timerStarted;
 
     public Task_Wake(Transform transform)
     {
@@ -12,13 +15,23 @@ public class Task_Wake : Node
 
     public override NodeState Evaluate()
     {
-        if (animator != null)
+        if (!timerStarted)
         {
-            animator.SetBool("sleep", false);
-            animator.SetBool("idle", true);
+            timeStarted = Time.time;
+            timerStarted = true;
+            if (animator != null)
+            {
+                animator.SetBool("sleep", false);
+                animator.SetBool("idle", true);
+            }
         }
 
-        SetData("awake", true);
+        if (Time.time - timeStarted >= delay)
+        {
+            SetData("awake", true);
+            state = NodeState.SUCCESS;
+            return state;
+        }
 
         state = NodeState.RUNNING;
         return state;
