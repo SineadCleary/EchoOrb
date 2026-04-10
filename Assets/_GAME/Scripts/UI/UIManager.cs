@@ -6,9 +6,24 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] Toggle levelValid;
 
-    public void StartGame()
+    private void Start()
     {
+        if (levelValid != null)
+        {
+            levelValid.isOn = LevelLoader.currentLevel.complete;
+        }
+    }
+
+    public void StartCustomGame()
+    {
+        if (LevelLoader.currentLevel == null) return;
         SceneManager.LoadScene(3);
+    }
+
+    public void StartBaseGame()
+    {
+        if (LevelLoader.currentLevel == null) return;
+        SceneManager.LoadScene(5);
     }
 
     public void StartEditor()
@@ -31,6 +46,12 @@ public class UIManager : MonoBehaviour
     {
         LevelLoader.currentLevel = null;
         SceneManager.LoadScene(2);
+    }
+
+    public void OpenLevelSelection()
+    {
+        LevelLoader.currentLevel = null;
+        SceneManager.LoadScene(4);
     }
 
     public void SaveCurrentLevel()

@@ -16,7 +16,7 @@ public class EnablePlayButton : MonoBehaviour
         if (hasStartPoint && hasEndPoint)
         {
             LevelLoader.currentLevel = saveLoad.EditorObjectsToLevelData();
-            uiManager.StartGame();
+            uiManager.StartCustomGame();
         }
         else
         {

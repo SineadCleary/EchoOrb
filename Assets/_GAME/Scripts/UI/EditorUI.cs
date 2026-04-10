@@ -80,7 +80,7 @@ public class EditorUI : MonoBehaviour
     public void EnterPlayMode()
     {
         LevelLoader.currentLevel = saveLoad.EditorObjectsToLevelData();
-        uiManager.StartGame();
+        uiManager.StartCustomGame();
     }
 
     public void ClearAll()

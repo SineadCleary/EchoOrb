@@ -1,4 +1,5 @@
 using System.IO;
+using UnityEditor;
 using UnityEngine;
 
 public class LevelCardButton : MonoBehaviour
@@ -15,7 +16,7 @@ public class LevelCardButton : MonoBehaviour
     {
         if (string.IsNullOrEmpty(filepath)) return;
         LevelLoader.currentLevel = SaveLoad.LoadLevelDataFromJSON(filepath);
-        manager.StartGame();
+        manager.StartCustomGame();
     }
 
     public void Edit()
@@ -38,4 +39,23 @@ public class LevelCardButton : MonoBehaviour
         GameObject panel = this.transform.GetChild(0).gameObject;
         panel.SetActive(!panel.activeInHierarchy);
     }
+
+#if UNITY_EDITOR
+    public void Publish()
+    {
+        if (string.IsNullOrEmpty(filepath)) return;
+
+        string publishFolder = Path.Combine(Application.streamingAssetsPath, "Levels");
+
+        if (!Directory.Exists(publishFolder))
+            Directory.CreateDirectory(publishFolder);
+
+        string fileName = Path.GetFileName(filepath);
+        string destination = Path.Combine(publishFolder, fileName);
+
+        File.Copy(filepath, destination, true);
+        Debug.Log("Published level to: " + destination);
+        AssetDatabase.Refresh();
+    }
+#endif
 }

@@ -40,6 +40,11 @@ public class Gallery : MonoBehaviour
             // Date
             card.GetComponentsInChildren<TextMeshProUGUI>()[3].text = levelData.date;
 
+#if UNITY_EDITOR
+            // publish button
+            card.transform.GetChild(4).gameObject.SetActive(true);
+#endif
+
             // File path
             LevelCardButton[] buttons = card.GetComponentsInChildren<LevelCardButton>();
             foreach (LevelCardButton button in buttons)

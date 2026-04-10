@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce671329bca47eb49b92219fb3f6d348, type: 3}
+  m_Name: GhostWall_YellowOff
+  m_EditorClassIdentifier: Assembly-CSharp::PlaceableItem
+  id: 17
+  itemName: Yellow Ghost Wall Off
+  icon: {fileID: 21300000, guid: 39a25b4d31fa38548a47af76c2281d0e, type: 3}
+  editorPrefab: {fileID: 955269314970787349, guid: 9343921c1e87eda4d8b1a6ac881a24c6, type: 3}
+  gamePrefab: {fileID: 0}
+  tile: {fileID: 11400000, guid: c475ac07807238644876dc5b90713bae, type: 2}
+  tilemap: 10

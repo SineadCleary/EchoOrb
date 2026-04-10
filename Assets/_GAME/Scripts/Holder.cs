@@ -9,7 +9,7 @@ public abstract class Holder : MonoBehaviour
     protected Player player;
     protected GameManager gameManager;
 
-    public bool powered { get; private set; }
+    public bool powered;
     public bool near;
     [SerializeField] Sprite sprite_holder;
     [SerializeField] Sprite sprite_holder_orb;
