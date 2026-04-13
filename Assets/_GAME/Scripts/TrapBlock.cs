@@ -14,9 +14,11 @@ public class TrapBlock : MonoBehaviour
     PathNode prevNode;
 
     Rigidbody2D myRigidbody;
+    AudioSource audioSource;
     int layerMask;
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] int rayLength = 10;
+    [SerializeField] AudioClip blockSound;
 
     RaycastHit2D leftRay;
     RaycastHit2D rightRay;
@@ -26,6 +28,7 @@ public class TrapBlock : MonoBehaviour
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         layerMask = LayerMask.GetMask("Player", "NonWalkable", "Trap"); // used for raycasts
         grid = Pathfinding.Instance.GetGrid();
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -170,6 +173,7 @@ public class TrapBlock : MonoBehaviour
         if (Vector3.Distance(transform.position, destination) <= 0.05f)
         {
             // reached destination
+            audioSource.PlayOneShot(blockSound);
             transform.position = destination;
             moving = false;
         }

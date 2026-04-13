@@ -9,6 +9,7 @@ public class BT_CrazyCreature : BTree
     [SerializeField] float speed = 5f;
     [SerializeField] float shootCooldown = 1f;
     [SerializeField] GameObject bullet;
+    [SerializeField] AudioClip shootSound;
 
     protected override Node SetupTree()
     {
@@ -19,7 +20,7 @@ public class BT_CrazyCreature : BTree
             new Sequence(new List<Node>
             {
                 new Check_PlayerNear(transform, player, shootRadius),
-                new Task_Shoot(transform, player, bullet, shootCooldown),
+                new Task_Shoot(transform, player, bullet, shootSound, shootCooldown),
             }),
             new Sequence(new List<Node>
             {

@@ -7,9 +7,9 @@ TagManager:
   - Projectile
   - StartPoint
   - Enemy
-  - AudioManager
   - UIManager
   - Creature
+  - Music
   layers:
   - Default
   - TransparentFX

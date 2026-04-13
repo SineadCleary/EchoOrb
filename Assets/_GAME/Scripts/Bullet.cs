@@ -7,12 +7,23 @@ public class Bullet : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] int damage = 10;
     Vector2 moveDirection;
+    float destroyTime = 20f;
+    float destroyTimeCounter = 0f;
 
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         if (moveDirection == Vector2.zero) moveDirection = transform.up.normalized;
         myRigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        destroyTimeCounter += Time.deltaTime;
+        if (destroyTimeCounter >= destroyTime)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void FixedUpdate()
