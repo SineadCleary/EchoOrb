@@ -18,6 +18,10 @@ public class EnablePlayButton : MonoBehaviour
             LevelLoader.currentLevel = saveLoad.EditorObjectsToLevelData();
             uiManager.StartCustomGame();
         }
+        else if (message.activeInHierarchy)
+        {
+            message.SetActive(false);
+        }
         else
         {
             message.SetActive(true);
