@@ -7,7 +7,10 @@ public class AudioSetup : MonoBehaviour
 
     private void Awake()
     {
-        audioSource = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
+        GameObject music = GameObject.FindGameObjectWithTag("Music");
+        if (music == null) return;
+
+        audioSource = music.GetComponent<AudioSource>();
         if (audioSource != null && audioSource.clip != clip)
         {
             audioSource.clip = clip;

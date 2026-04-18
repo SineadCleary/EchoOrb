@@ -11,6 +11,7 @@ public class SO_Placeable : ScriptableObject
     public GameObject gamePrefab;
     public TileBase tile;
     public MyTilemap tilemap;
+    public int altId;
 }
 
 public enum MyTilemap

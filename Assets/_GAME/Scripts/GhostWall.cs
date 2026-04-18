@@ -17,7 +17,7 @@ public class GhostWall : MonoBehaviour
         tilemap = GetComponent<Tilemap>();
         grid = Pathfinding.Instance.GetGrid();
         c_normal = tilemap.color;
-        c_invisible = new Color(tilemap.color.r, tilemap.color.g, tilemap.color.b, 0.5f);
+        c_invisible = new Color(tilemap.color.r, tilemap.color.g, tilemap.color.b, 0.35f);
         bounds = tilemap.cellBounds;
 
         SetVisible(visible);

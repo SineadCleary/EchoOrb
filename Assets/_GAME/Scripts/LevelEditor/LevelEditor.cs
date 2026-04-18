@@ -18,7 +18,10 @@ public class LevelEditor : MonoBehaviour
     [SerializeField] LayerMask objectMask;
     [SerializeField] LayerMask floorMask;
 
+    [SerializeField] SO_Database database;
+
     CameraMovement mainCamera;
+    [SerializeField] AudioSource UIAudioSource;
 
     Vector2 mousePosScreen;
     Vector2 mousePosWorld;
@@ -26,6 +29,7 @@ public class LevelEditor : MonoBehaviour
     bool pointerOnObject;
     bool pointerOnFloor;
     bool drawing;
+    int rotation = 0;
 
     public GameObject startPoint;
     public int endPoints;
@@ -125,6 +129,40 @@ public class LevelEditor : MonoBehaviour
         }
     }
 
+    public void OnRotateLeft(InputAction.CallbackContext context)
+    {
+        if (!context.performed || currentTool != Tool.PLACE || currentPlaceableItem.tile != null) return;
+        Rotate(1);
+    }
+
+    public void OnRotateRight(InputAction.CallbackContext context)
+    {
+        if (!context.performed || currentTool != Tool.PLACE || currentPlaceableItem.tile != null) return;
+        Rotate(-1);
+    }
+
+    private void Rotate(int direction)
+    {
+        rotation = (rotation + 90 * direction + 360) % 360;
+        objectPreview.transform.rotation = Quaternion.Euler(0, 0, rotation);
+        UIAudioSource.Play();
+    }
+
+    public void ResetRotation()
+    {
+        rotation = 0;
+        objectPreview.transform.rotation = Quaternion.identity;
+    }
+
+    public void Toggle(InputAction.CallbackContext context)
+    {
+        if (!context.performed || currentTool != Tool.PLACE) return;
+        if (currentPlaceableItem.altId == 0) return;
+        currentPlaceableItem = database.GetPlaceable(currentPlaceableItem.altId);
+        SetPreview(currentPlaceableItem.editorPrefab);
+        UIAudioSource.Play();
+    }
+
     void Draw()
     {
         switch (currentTool)
@@ -141,7 +179,7 @@ public class LevelEditor : MonoBehaviour
                 // Place other tiles and items
                 if (pointerOnObject) return;
 
-                GameObject obj = Instantiate(currentPlaceableItem.editorPrefab, mousePosWorld, Quaternion.identity, objectGroup.transform);
+                GameObject obj = Instantiate(currentPlaceableItem.editorPrefab, mousePosWorld, Quaternion.Euler(0f, 0f, rotation), objectGroup.transform);
 
                 // start/end points
                 if (currentPlaceableItem.id == 101) endPoints++;
@@ -201,6 +239,7 @@ public class LevelEditor : MonoBehaviour
     {
         currentPlaceableItem = placeable.data;
         SetPreview(currentPlaceableItem.editorPrefab);
+        ResetRotation();
     }
 
     void SetPreview(GameObject prefab)
@@ -210,7 +249,9 @@ public class LevelEditor : MonoBehaviour
             Destroy(objectPreview);
         }
         objectPreview = Instantiate(prefab, Vector3.zero, Quaternion.identity);
-        objectPreview.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.35f);
+        SpriteRenderer sr = objectPreview.GetComponent<SpriteRenderer>();
+        float transparency = sr.color.a;
+        sr.color = new Color(1, 1, 1, transparency * 0.35f);
         objectPreview.GetComponent<Collider2D>().enabled = false;
     }
 

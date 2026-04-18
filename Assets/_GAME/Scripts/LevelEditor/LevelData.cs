@@ -29,6 +29,7 @@ public class ItemData
     public int prefabID;
     public float x;
     public float y;
+    public int rotation;
 }
 
 [System.Serializable]

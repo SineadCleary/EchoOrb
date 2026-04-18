@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce671329bca47eb49b92219fb3f6d348, type: 3}
-  m_Name: HolderRageOn
+  m_Name: HolderGhostWallPurpleOn
   m_EditorClassIdentifier: Assembly-CSharp::SO_Placeable
-  id: 209
-  itemName: Rage Holder On
+  id: 211
+  itemName: Purple Ghost Wall Holder On
   icon: {fileID: 0}
-  editorPrefab: {fileID: 112266201876489014, guid: aeb084b60f15d9946b0af726851a70a7, type: 3}
-  gamePrefab: {fileID: 415333290878786936, guid: 398f979be6585e04881b30b55935e770, type: 3}
+  editorPrefab: {fileID: 112266201876489014, guid: de3e0163b4556b249876d36a91443008, type: 3}
+  gamePrefab: {fileID: 415333290878786936, guid: f56c814d8c0394a49a15692f98ad9420, type: 3}
   tile: {fileID: 0}
   tilemap: 0
-  altId: 205
+  altId: 201

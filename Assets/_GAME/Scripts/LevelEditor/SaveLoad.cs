@@ -124,7 +124,8 @@ public class SaveLoad : MonoBehaviour
         {
             GameObject prefab = database.GetEditorPrefab(item.prefabID);
             Vector3 pos = new Vector3(item.x, item.y, 0);
-            GameObject obj = Instantiate(prefab, pos, Quaternion.identity, objectGroup);
+            int rotation = item.rotation;
+            GameObject obj = Instantiate(prefab, pos, Quaternion.Euler(0,0,rotation), objectGroup);
             if (item.prefabID == 100) levelEditor.startPoint = obj;
             if (item.prefabID == 101) levelEditor.endPoints++;
         }

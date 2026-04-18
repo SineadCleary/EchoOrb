@@ -57,7 +57,8 @@ public class LevelBuilder : MonoBehaviour
         {
             GameObject prefab = database.GetGamePrefab(obj.prefabID);
             Vector3 position = new Vector3(obj.x, obj.y, 0);
-            GameObject item = Instantiate(prefab, position, Quaternion.identity);
+            int rotation = obj.rotation;
+            GameObject item = Instantiate(prefab, position, Quaternion.Euler(0, 0, rotation));
             
             // Holders
             // Ghost wall holders

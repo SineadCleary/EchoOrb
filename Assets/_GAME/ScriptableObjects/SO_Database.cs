@@ -24,6 +24,17 @@ public class SO_Database : ScriptableObject
         }
     }
 
+    public SO_Placeable GetPlaceable(int id)
+    {
+        if (dictionary.TryGetValue(id, out var item))
+        {
+            return item;
+        }
+
+        Debug.LogError("Dictionary missing id: " + id);
+        return null;
+    }
+
     public GameObject GetEditorPrefab(int id)
     {
         // TryGetValue(): checks for id: returns true if moving, false if not moving

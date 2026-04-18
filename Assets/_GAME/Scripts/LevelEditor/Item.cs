@@ -10,7 +10,8 @@ public class Item : Placeable
         {
             prefabID = data.id,
             x = pos.x,
-            y = pos.y
+            y = pos.y,
+            rotation = Mathf.RoundToInt(transform.eulerAngles.z),
         });
     }
 

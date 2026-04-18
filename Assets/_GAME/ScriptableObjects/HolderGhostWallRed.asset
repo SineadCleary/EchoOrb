@@ -19,3 +19,4 @@ MonoBehaviour:
   gamePrefab: {fileID: 415333290878786936, guid: d7d66cc5b1f683e42b254fdfc15d7ee1, type: 3}
   tile: {fileID: 0}
   tilemap: 0
+  altId: 212
