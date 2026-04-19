@@ -13,7 +13,6 @@ public class TrapBlock : MonoBehaviour
     GameManager gameManager;
     PathNode prevNode;
 
-    Rigidbody2D myRigidbody;
     AudioSource audioSource;
     int layerMask;
     [SerializeField] float moveSpeed = 3f;
@@ -25,9 +24,13 @@ public class TrapBlock : MonoBehaviour
     RaycastHit2D upRay;
     RaycastHit2D downRay;
 
+    Vector2 leftRayOrigin;
+    Vector2 rightRayOrigin;
+    Vector2 upRayOrigin;
+    Vector2 downRayOrigin;
+
     void Start()
     {
-        myRigidbody = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         layerMask = LayerMask.GetMask("Player", "NonWalkable", "Trap"); // used for raycasts
         grid = Pathfinding.Instance.GetGrid();
@@ -48,10 +51,10 @@ public class TrapBlock : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 leftRayOrigin = (Vector2)transform.position + Vector2.left;
-        Vector2 rightRayOrigin = (Vector2)transform.position + Vector2.right;
-        Vector2 upRayOrigin = (Vector2)transform.position + Vector2.up;
-        Vector2 downRayOrigin = (Vector2)transform.position + Vector2.down;
+        leftRayOrigin = (Vector2)transform.position + Vector2.left;
+        rightRayOrigin = (Vector2)transform.position + Vector2.right;
+        upRayOrigin = (Vector2)transform.position + Vector2.up;
+        downRayOrigin = (Vector2)transform.position + Vector2.down;
 
         if (debug)
         {
@@ -62,7 +65,7 @@ public class TrapBlock : MonoBehaviour
         }
 
         leftRay = Physics2D.Raycast(leftRayOrigin, Vector2.left, rayLength, layerMask);
-        rightRay = Physics2D.Raycast(upRayOrigin, Vector2.right, rayLength, layerMask);
+        rightRay = Physics2D.Raycast(rightRayOrigin, Vector2.right, rayLength, layerMask);
         upRay = Physics2D.Raycast(upRayOrigin, Vector2.up, rayLength, layerMask);
         downRay = Physics2D.Raycast(downRayOrigin, Vector2.down, rayLength, layerMask);
 
@@ -118,7 +121,7 @@ public class TrapBlock : MonoBehaviour
                 if (node != null && !node.isWalkable)
                 {
                     Vector2 destination = grid.GetWorldPosition(node.x - direction.x, node.y);
-                    destination += Vector2.one * 0.5f; // fixes grid offset issue
+                    destination += gridOffset; // fixes grid offset issue
 
                     if (prevNode != null)
                     {
@@ -159,6 +162,7 @@ public class TrapBlock : MonoBehaviour
                 }
             }
         }
+        moving = false;
         return transform.position;
     }
 
