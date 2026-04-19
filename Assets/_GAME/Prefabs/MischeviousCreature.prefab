@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1404dd5601e484c4e92ef65d656102d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BT_MischeviousCreature
+  speed: 3
 --- !u!95 &-873111183070600523
 Animator:
   serializedVersion: 7

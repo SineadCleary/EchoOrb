@@ -225,3 +225,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a47f5553e70da5c428444429ab59f4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BT_SimpleCreature
+  speed: 3

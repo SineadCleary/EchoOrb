@@ -5,6 +5,7 @@ using UnityEngine;
 public class BT_DisguisedCreature : BTree
 {
     [SerializeField] float radius = 2f;
+    [SerializeField] float speed = 5f;
 
     protected override Node SetupTree()
     {
@@ -20,9 +21,9 @@ public class BT_DisguisedCreature : BTree
                     new Sequence(new List<Node>
                     {
                         new Check_RageMode(gameManager),
-                        new Task_MoveTowardsPlayer(5f, 0.5f, transform, player),
+                        new Task_MoveTowardsPlayer(speed, 0.5f, transform, player),
                     }),
-                    new Task_Wander(5f, transform, 1f, 8f),
+                    new Task_Wander(speed, transform, 1f, 8f),
                 }),
             }),
             new Sequence(new List<Node>

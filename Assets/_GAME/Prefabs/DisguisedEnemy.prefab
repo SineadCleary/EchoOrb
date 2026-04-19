@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BT_DisguisedCreature
   radius: 4
+  speed: 3
 --- !u!95 &3437529944848645681
 Animator:
   serializedVersion: 7
@@ -226,4 +227,3 @@ MonoBehaviour:
   attackDistance: 1
   attackDamage: 20
   attackCooldown: 1.1
-  ragedAttackOnly: 1

@@ -210,9 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ad8da4f7111e64a9aa7d89def7ae9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BT_CrazyCreature
-  shootRadius: 5
-  seePlayerRadius: 9
-  speed: 5
+  shootRadius: 3.5
+  seePlayerRadius: 6.5
+  speed: 4
   shootCooldown: 1
   bullet: {fileID: 5481918326790748512, guid: 90d91c239e085da4f9a060404357c0e0, type: 3}
   shootSound: {fileID: 8300000, guid: 73659e8605c792a4692745fedbef9ba6, type: 3}

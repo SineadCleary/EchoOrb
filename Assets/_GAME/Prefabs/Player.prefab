@@ -166,7 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6634ef77377c4cf41bbb77b4989a4bfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 10
+  moveSpeed: 6
+  atEnd: 0
   activateSound: {fileID: 8300000, guid: 1a2e2b0dbc61c06468be70adcb40637b, type: 3}
   death: {fileID: -964824239653993824, guid: 6f8fe547135cb3142a5548a9ebcb0c56, type: 3}
   nearHolder: {fileID: 0}
