@@ -2,18 +2,26 @@ using UnityEngine;
 
 public class EndPoint : MonoBehaviour
 {
-    GameManager gameManager;
+    Player player;
+    GameObject glow;
 
     private void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        glow = transform.GetChild(0).gameObject;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
+        glow.SetActive(true);
+        player.atEnd = true;
+    }
 
-        collision.transform.position = transform.position;
-        gameManager.Win();
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player")) return;
+        glow.SetActive(false);
+        player.atEnd = false;
     }
 }

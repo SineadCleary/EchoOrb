@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     SpriteRenderer mySpriteRenderer;
     Animator myAnimator;
     Vector2 moveDirection;
-    
+    public bool atEnd = false;
 
     GameManager gameManager;
     AudioSource myAudioSource;
@@ -69,6 +69,11 @@ public class Player : MonoBehaviour
 
     void OnPut()
     {
+        if (atEnd)
+        {
+            gameManager.Win();
+        }
+
         // Near a holder
         if (nearHolder == null) return;
 
