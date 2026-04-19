@@ -8,6 +8,7 @@ public class LevelBuilder : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameManager gameManager;
     [SerializeField] GridManager gridManager;
+    [SerializeField] GameObject bounds;
     [Header("Tilemaps")]
     [SerializeField] GameObject groundTilemap;
     [SerializeField] GameObject wallTilemap;
@@ -118,6 +119,36 @@ public class LevelBuilder : MonoBehaviour
 
         // Setup grid
         gridManager.SetupGrid();
+
+        // Setup world bounds
+        Vector2 origin = GridManager.origin;
+        int width = GridManager.width;
+        int height = GridManager.height;
+        BoxCollider2D[] cols = bounds.GetComponentsInChildren<BoxCollider2D>();
+        // Left
+        if (cols[0] != null)
+        {
+            cols[0].offset = new Vector2(origin.x - 0.5f, 0);
+            cols[0].size = new Vector2(1, height);
+        }
+        // Right
+        if (cols[1] != null)
+        {
+            cols[1].offset = new Vector2(Mathf.Abs(origin.x - 0.5f), 0);
+            cols[1].size = new Vector2(1, height);
+        }
+        // Bottom
+        if (cols[2] != null)
+        {
+            cols[2].offset = new Vector2(0, origin.y - 0.5f);
+            cols[2].size = new Vector2(width, 1);
+        }
+        // Top
+        if (cols[3] != null)
+        {
+            cols[3].offset = new Vector2(0, Mathf.Abs(origin.y - 0.5f));
+            cols[3].size = new Vector2(width, 1);
+        }
 
         // Player
         startPoint = GameObject.FindGameObjectWithTag("StartPoint");

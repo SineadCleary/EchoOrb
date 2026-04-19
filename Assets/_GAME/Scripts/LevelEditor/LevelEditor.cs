@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -34,10 +35,16 @@ public class LevelEditor : MonoBehaviour
     public GameObject startPoint;
     public int endPoints;
 
+    Vector3 origin;
+    int width, height;
+
     void Start()
     {
         mainCamera = Camera.main.GetComponent<CameraMovement>();
         SetPreview(currentPlaceableItem.editorPrefab);
+        origin = GridManager.origin;
+        width = GridManager.width;
+        height = GridManager.height;
     }
 
     void Update()
@@ -178,6 +185,15 @@ public class LevelEditor : MonoBehaviour
 
                 // Place other tiles and items
                 if (pointerOnObject) return;
+
+                if (mousePosWorld.x < origin.x || 
+                    mousePosWorld.y < origin.y ||
+                    mousePosWorld.x > origin.x + width ||
+                    mousePosWorld.y > origin.y + height)
+                {
+                    Debug.Log("Out of bounds");
+                    return;
+                }
 
                 GameObject obj = Instantiate(currentPlaceableItem.editorPrefab, mousePosWorld, Quaternion.Euler(0f, 0f, rotation), objectGroup.transform);
 

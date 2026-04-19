@@ -4,22 +4,17 @@ using UnityEngine.Tilemaps;
 
 public class GridManager : MonoBehaviour
 {
-    [Header("Grid setup")]
-    // When we have different level sizes move these to LevelBuilder, and add origin
-    [SerializeField] private int width = 58;
-    [SerializeField] private int height = 31;
-    [Header("Tilemaps")]
+    // Width and height must be odd numbers
+    public static int width = 61;
+    public static int height = 41;
+    public static Vector3 origin = new Vector3(-(width/2f), -(height/2f));
+
     [SerializeField] private List<Tilemap> nonWalkableTilemaps;
 
     private void Awake()
     {
         new Pathfinding(width, height);
     }
-
-    //private void Start()
-    //{
-    //    SetupGrid();
-    //}
 
     public void SetupGrid()
     {
