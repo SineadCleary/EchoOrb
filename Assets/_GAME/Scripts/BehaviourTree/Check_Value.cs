@@ -13,7 +13,8 @@ public class Check_Value : Node
     {
         object obj = GetData(key);
         if (obj!=null && (bool)obj)
-            return NodeState.SUCCESS;
-        return NodeState.FAILURE;
+            state = NodeState.SUCCESS;
+        else state = NodeState.FAILURE;
+        return state;
     }
 }

@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BT_MischeviousCreature
   speed: 3
+  health: {fileID: -371196193452522458}
 --- !u!95 &-873111183070600523
 Animator:
   serializedVersion: 7
@@ -209,4 +210,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CreatureHealth
   health: 40
   dropsOrb: 0
-  orb: {fileID: 0}
+  orb: {fileID: 2926648309421373310, guid: 902e3a49965511d42acd072520974ddf, type: 3}

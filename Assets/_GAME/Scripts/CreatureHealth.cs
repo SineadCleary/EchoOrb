@@ -3,7 +3,7 @@ using UnityEngine;
 public class CreatureHealth : MonoBehaviour
 {
     [SerializeField] int health = 40;
-    [SerializeField] bool dropsOrb;
+    public bool dropsOrb;
     [SerializeField] GameObject orb;
 
     public void TakeDamage(int healthPoints)

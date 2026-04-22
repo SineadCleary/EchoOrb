@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class BT_MischeviousCreature : BTree
 {
     [SerializeField] float speed = 5f;
+    [SerializeField] CreatureHealth health;
 
     protected override Node SetupTree()
     {
@@ -13,10 +14,9 @@ public class BT_MischeviousCreature : BTree
             new Sequence(new List<Node>
             {
                 new Check_Value("hasOrb"), // if has orb
-                new Task_SetAnimationBool("hasOrb", true, transform),
                 new Check_CanFindHolder(false), // empty holder
                 new Task_GoTo(speed, transform),
-                new Task_PlaceOrb(transform),
+                new Task_PlaceOrb(transform, health),
             }),
             new Sequence(new List<Node>
             {
@@ -25,7 +25,7 @@ public class BT_MischeviousCreature : BTree
                 new Task_SetAnimationBool("hasOrb", false, transform),
                 new Check_CanFindHolder(true), // occupied holder
                 new Task_GoTo(speed, transform),
-                new Task_TakeOrb(transform),
+                new Task_TakeOrb(transform, health),
             }),
             new Task_Wander(speed, transform, 1, 5),
         });
