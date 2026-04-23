@@ -8,6 +8,11 @@ public class HasOrb : MonoBehaviour
     public Holder targetHolder;
     public Holder lastHolder;
 
+    private void Start()
+    {
+        animator.SetBool("hasOrb", hasOrb);
+    }
+
     public void SetHasOrb(bool hasOrb)
     {
         this.hasOrb = hasOrb;

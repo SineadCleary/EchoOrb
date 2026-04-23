@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce671329bca47eb49b92219fb3f6d348, type: 3}
-  m_Name: MischeviousCreature
+  m_Name: MischeviousCreatureWithOrb
   m_EditorClassIdentifier: Assembly-CSharp::SO_Placeable
-  id: 301
-  itemName: Mischevious Creature
+  id: 304
+  itemName: Mischevious Creature With Orb
   icon: {fileID: 0}
-  editorPrefab: {fileID: 112266201876489014, guid: ad13fd00ff0141e4b94e2e92cace51ab, type: 3}
-  gamePrefab: {fileID: 1647659712766487818, guid: fee4a0e8e8fc54248b1477b752b344fe, type: 3}
+  editorPrefab: {fileID: 112266201876489014, guid: 026ff511a44724e43af0e85ea140c075, type: 3}
+  gamePrefab: {fileID: 8846987848923186126, guid: 6a3363dddfbd1ee409154f87bc259a15, type: 3}
   tile: {fileID: 0}
   tilemap: 0
-  altId: 304
+  altId: 301
