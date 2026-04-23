@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8118595867042876444}
   - component: {fileID: 3558836614451670864}
   - component: {fileID: 3627415987376761509}
-  - component: {fileID: 4460148108390449853}
   - component: {fileID: -873111183070600523}
   - component: {fileID: 3965138433910635688}
+  - component: {fileID: 4460148108390449853}
+  - component: {fileID: 255803587456391621}
   - component: {fileID: -371196193452522458}
   m_Layer: 10
   m_Name: MischeviousCreature
@@ -123,20 +124,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4460148108390449853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647659712766487818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1404dd5601e484c4e92ef65d656102d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BT_MischeviousCreature
-  speed: 3
-  health: {fileID: -371196193452522458}
 --- !u!95 &-873111183070600523
 Animator:
   serializedVersion: 7
@@ -196,6 +183,35 @@ CapsuleCollider2D:
   m_Offset: {x: -0.023406982, y: 0.0025634766}
   m_Size: {x: 0.91156006, y: 0.91156006}
   m_Direction: 0
+--- !u!114 &4460148108390449853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647659712766487818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1404dd5601e484c4e92ef65d656102d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BT_MischeviousCreature
+  speed: 3
+  health: {fileID: -371196193452522458}
+  hasOrb: {fileID: 255803587456391621}
+--- !u!114 &255803587456391621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647659712766487818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a7f3e33dcb7384e8ca9a3b9cf7ff55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HasOrb
+  hasOrb: 0
+  animator: {fileID: -873111183070600523}
 --- !u!114 &-371196193452522458
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class BT_MischeviousCreature : BTree
 {
     [SerializeField] float speed = 5f;
     [SerializeField] CreatureHealth health;
+    [SerializeField] HasOrb hasOrb;
 
     protected override Node SetupTree()
     {
@@ -13,19 +14,18 @@ public class BT_MischeviousCreature : BTree
         {
             new Sequence(new List<Node>
             {
-                new Check_Value("hasOrb"), // if has orb
-                new Check_CanFindHolder(false), // empty holder
-                new Task_GoTo(speed, transform),
-                new Task_PlaceOrb(transform, health),
+                new Check_HasOrb(hasOrb), // if has orb
+                new Check_CanFindHolder(false, hasOrb), // empty holder
+                new Task_GoTo(speed, transform, hasOrb),
+                new Task_PlaceOrb(transform, health, hasOrb),
             }),
             new Sequence(new List<Node>
             {
                 new Inverter(
-                    new Check_Value("hasOrb")), // if not has orb
-                new Task_SetAnimationBool("hasOrb", false, transform),
-                new Check_CanFindHolder(true), // occupied holder
-                new Task_GoTo(speed, transform),
-                new Task_TakeOrb(transform, health),
+                    new Check_HasOrb(hasOrb)), // if not has orb
+                new Check_CanFindHolder(true, hasOrb), // occupied holder
+                new Task_GoTo(speed, transform, hasOrb),
+                new Task_TakeOrb(transform, health, hasOrb),
             }),
             new Task_Wander(speed, transform, 1, 5),
         });

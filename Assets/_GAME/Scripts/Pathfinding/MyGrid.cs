@@ -16,7 +16,7 @@ public class MyGrid<TGridObject>
     private Vector3 originPosition;
     private TGridObject[,] gridArray;
 
-    private bool showDebug = true;
+    private bool showDebug = false;
 
     public MyGrid(int width, int height, float cellSize, Vector3 originPosition, Func<MyGrid<TGridObject>, int, int, TGridObject> createGridObject)
     {

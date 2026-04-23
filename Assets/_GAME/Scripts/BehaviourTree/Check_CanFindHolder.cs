@@ -5,27 +5,41 @@ using System.Collections.Generic;
 public class Check_CanFindHolder : Node
 {
     bool occupied;
+    private Holder[] allHolders;
+    HasOrb hasOrb;
 
-    public Check_CanFindHolder(bool occupied)
+    public Check_CanFindHolder(bool occupied, HasOrb hasOrb)
     {
         this.occupied = occupied;
+        this.hasOrb = hasOrb;
     }
 
     public override NodeState Evaluate()
     {
-        // If already have target holder SUCCESS
-        if (GetData("holder") != null)
+        if (allHolders == null || allHolders.Length == 0)
         {
-            state = NodeState.SUCCESS;
-            return state;
+            allHolders = GameObject.FindObjectsByType<Holder>(FindObjectsSortMode.None);
+        }
+
+        // If already have target holder SUCCESS
+        Holder currentHolder = hasOrb.targetHolder;
+        if (currentHolder != null)
+        {
+            if (currentHolder.powered == occupied)
+            {
+                return NodeState.SUCCESS;
+            }
+            else
+            { 
+                hasOrb.targetHolder = null;
+            }
         }
 
         // Else search for new target
-        Holder[] allHolders = GameObject.FindObjectsByType<Holder>(FindObjectsSortMode.None);
         List<Holder> holders = new List<Holder>();
 
         // Don't go straight back to the last holder
-        Holder lastHolder = (Holder)GetData("lastHolder");
+        Holder lastHolder = hasOrb.lastHolder;
 
         foreach(Holder holder in allHolders)
         {
@@ -42,12 +56,8 @@ public class Check_CanFindHolder : Node
         }
 
         int randomIndex = Random.Range(0, holders.Count);
-        SetData("holder", holders[randomIndex]);
-        SetData("holderPosition", holders[randomIndex].transform.position);
+        hasOrb.targetHolder = holders[randomIndex];
 
-        ClearData("lastHolder");
-
-        state = GetData("holder") == null || GetData("holderPosition") == null ? NodeState.FAILURE : NodeState.SUCCESS;
-        return state;
+        return NodeState.SUCCESS;
     }
 }

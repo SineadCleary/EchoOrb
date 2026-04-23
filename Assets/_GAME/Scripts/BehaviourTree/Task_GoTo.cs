@@ -11,37 +11,53 @@ public class Task_GoTo : Node
     private int currentPathIndex;
     private List<Vector3> pathVectorList;
     private Animator animator;
+    private HasOrb hasOrb;
 
-    public Task_GoTo(float speed, UnityEngine.Transform transform)
+    private Vector3 currentTarget;
+    private bool reachedTarget;
+
+    public Task_GoTo(float speed, UnityEngine.Transform transform, HasOrb hasOrb)
     {
         this.speed = speed;
         this.transform = transform;
         animator = transform.GetComponent<Animator>();
+        this.hasOrb = hasOrb;
     }
 
     public override NodeState Evaluate()
     {
-        if (!hasValidPath)
+        if (hasOrb.targetHolder == null)
+            return NodeState.FAILURE;
+
+        Holder holder = hasOrb.targetHolder;
+
+        Vector3 newTarget = holder.transform.position;
+
+        if (!hasValidPath || newTarget != currentTarget)
         {
-            object data = GetData("holderPosition");
-            if (data is Vector3 targetPos)
-            {
-                SetTargetPosition(targetPos);
-                if (!hasValidPath) return NodeState.FAILURE; // pathfinding failed
-            }
-            else
-            {
-                ClearData("holder");
-                ClearData("holderPosition");
+            reachedTarget = false;
+            currentTarget = newTarget;
+
+            SetTargetPosition(currentTarget);
+
+            if (!hasValidPath)
                 return NodeState.FAILURE;
-            }
+
+        }
+
+        if (reachedTarget)
+        {
+            return NodeState.SUCCESS;
         }
 
         HandleMovement();
 
-        return hasValidPath
-        ? NodeState.RUNNING
-        : NodeState.SUCCESS;
+        if (reachedTarget)
+        {
+            return NodeState.SUCCESS;
+        }
+
+        return NodeState.RUNNING;
     }
 
     private void HandleMovement()
@@ -79,6 +95,10 @@ public class Task_GoTo : Node
                 }
             }
         }
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
     }
 
     public void SetTargetPosition(Vector3 targetPosition)
@@ -108,6 +128,7 @@ public class Task_GoTo : Node
         }
         pathVectorList = null;
         hasValidPath = false;
+        reachedTarget = true;
     }
 
     public Vector3 GetPosition()

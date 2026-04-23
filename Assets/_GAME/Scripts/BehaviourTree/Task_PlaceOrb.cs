@@ -3,43 +3,33 @@ using BehaviourTree;
 
 public class Task_PlaceOrb : Node
 {
-    private Animator animator;
     private CreatureHealth health;
-    public Task_PlaceOrb(Transform transfomrm, CreatureHealth health) {
-        animator = transfomrm.GetComponent<Animator>();
+    HasOrb hasOrb;
+    public Task_PlaceOrb(Transform transfomrm, CreatureHealth health, HasOrb hasOrb) {
         this.health = health;
+        this.hasOrb = hasOrb;
     }
 
     public override NodeState Evaluate()
     {
-        Holder holder = (Holder)GetData("holder");
+        Holder holder = hasOrb.targetHolder;
 
-        object hasOrbObj = GetData("hasOrb");
-        bool hasOrb = hasOrbObj != null && (bool)hasOrbObj;
-
-        if (holder == null || holder.powered || !hasOrb)
+        if (holder == null || holder.powered || !hasOrb.GetHasOrb())
         {
             // invalidate target and fail
-            ClearData("holder");
-            ClearData("holderPosition");
-            ClearData("lastHolder");
+            hasOrb.targetHolder = null;
+            hasOrb.lastHolder = null;
             state = NodeState.FAILURE;
             return state;
         }
 
         Debug.Log("Place");
-        SetData("hasOrb", false);
+        hasOrb.SetHasOrb(false);
         holder.SetPowered(true);
         health.dropsOrb = false;
 
-        if (animator != null)
-        {
-            animator.SetBool("hasOrb", false);
-        }
-
-        SetData("lastHolder", holder);
-        ClearData("holder");
-        ClearData("holderPosition");
+        hasOrb.lastHolder = hasOrb.targetHolder;
+        hasOrb.targetHolder = null;
 
         state = NodeState.SUCCESS;
         return state;
@@ -48,44 +38,34 @@ public class Task_PlaceOrb : Node
 
 public class Task_TakeOrb : Node
 {
-    private Animator animator;
     private CreatureHealth health;
-    public Task_TakeOrb(Transform transform, CreatureHealth health)
+    HasOrb hasOrb;
+    public Task_TakeOrb(Transform transform, CreatureHealth health, HasOrb hasOrb)
     {
-        animator = transform.GetComponent<Animator>();
         this.health = health;
+        this.hasOrb = hasOrb;
     }
 
     public override NodeState Evaluate()
     {
-        Holder holder = (Holder)GetData("holder");
+        Holder holder = hasOrb.targetHolder;
 
-        object hasOrbObj = GetData("hasOrb");
-        bool hasOrb = hasOrbObj != null && (bool)hasOrbObj;
-
-        if (holder == null || !holder.powered || hasOrb)
+        if (holder == null || !holder.powered || hasOrb.GetHasOrb())
         {
             // invalidate target and fail
-            ClearData("holder");
-            ClearData("holderPosition");
-            ClearData("lastHolder");
+            hasOrb.targetHolder = null;
+            hasOrb.lastHolder = null;
             state = NodeState.FAILURE;
             return state;
         }
 
         Debug.Log("Take");
-        SetData("hasOrb", true);
+        hasOrb.SetHasOrb(true);
         holder.SetPowered(false);
         health.dropsOrb = true;
 
-        if (animator != null)
-        {
-            animator.SetBool("hasOrb", true);
-        }
-
-        SetData("lastHolder", holder);
-        ClearData("holder");
-        ClearData("holderPosition");
+        hasOrb.lastHolder = hasOrb.targetHolder;
+        hasOrb.targetHolder = null;
 
         state = NodeState.SUCCESS;
         return state;
