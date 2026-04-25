@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Code based on: https://unitycodemonkey.com/video.php?v=alU04hvz6L4
+
 public class Pathfinding 
 {
     private const int MOVE_STRAIGHT_COST = 10;

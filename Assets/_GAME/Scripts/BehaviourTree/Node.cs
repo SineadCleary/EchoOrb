@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
+// Code based on: https://medium.com/geekculture/how-to-create-a-simple-behaviour-tree-in-unity-c-3964c84c060e
+
 namespace BehaviourTree
 {
     public enum NodeState

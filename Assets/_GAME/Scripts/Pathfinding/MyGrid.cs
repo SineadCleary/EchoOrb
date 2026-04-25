@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+// Code based on: https://unitycodemonkey.com/video.php?v=waEsGu--9P8
+
 public class MyGrid<TGridObject>
 {
     public event EventHandler<OnGridObjectChangedEventArgs> OnGridObjectChanged;
