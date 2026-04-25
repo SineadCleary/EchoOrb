@@ -24,14 +24,14 @@ public class GameManager : MonoBehaviour
     public int AddOrb()
     {
         numOrbs++;
-        orbsText.text = "Orbs: " + numOrbs;
+        orbsText.text = numOrbs.ToString();
         return numOrbs;
     }
 
     public int RemoveOrb()
     {
         numOrbs--;
-        orbsText.text = "Orbs: " + numOrbs;
+        orbsText.text = numOrbs.ToString();
         return numOrbs;
     }
 
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
             PlayerDeath();
             player.GetComponent<Player>().Die();
         }
-        healthText.text = "Health: " + playerHealth;
+        healthText.text = playerHealth.ToString();
         return playerHealth;
     }
 

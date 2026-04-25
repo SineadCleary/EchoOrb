@@ -11,6 +11,7 @@ TagManager:
   - Creature
   - Music
   - Floor
+  - Stairs
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Trap
   - NonWalkable
   - Stairs
-  - 
+  - Cannon
   - 
   - 
   - 
