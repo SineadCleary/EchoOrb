@@ -1,7 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     GameManager gameManager;
     [SerializeField] Sprite death;
 
-    public Holder nearHolder;
+    public List<Holder> nearHolders;
 
     public UnityEvent activateEvent;
 
@@ -72,22 +72,25 @@ public class Player : MonoBehaviour
         }
 
         // Near a holder
-        if (nearHolder == null) return;
+        if (nearHolders.Count == 0) return;
 
-        // Holder powered
-        if (nearHolder.powered)
+        foreach (var holder in nearHolders)
         {
-            nearHolder.SetPowered(false);
-            gameManager.AddOrb();
-        }
-        // Holder not powered
-        else
-        {
-            // Has an orb
-            if (gameManager.numOrbs <= 0) return;
+            // Holder powered
+            if (holder.powered)
+            {
+                holder.SetPowered(false);
+                gameManager.AddOrb();
+            }
+            // Holder not powered
+            else
+            {
+                // Has an orb
+                if (gameManager.numOrbs <= 0) continue;
 
-            nearHolder.SetPowered(true);
-            gameManager.RemoveOrb();
+                holder.SetPowered(true);
+                gameManager.RemoveOrb();
+            }
         }
     }
 
