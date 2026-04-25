@@ -220,16 +220,29 @@ public class LevelEditor : MonoBehaviour
 
     void TrySelectObject()
     {
-        Collider2D hit = Physics2D.OverlapPoint(mousePosWorld);
-
         // Clear previous selection
         if (selectedObject != null)
         {
-            selectedObject.GetComponent<SpriteRenderer>().color = new Color (1, 1, 1);
+            selectedObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
             selectedObject = null;
         }
 
-        if (hit == null) return;
+        Collider2D[] hits = Physics2D.OverlapPointAll(mousePosWorld);
+        if (hits.Length == 0) return;
+        Collider2D hit = hits[0];
+
+        // try get non-floor
+        if (hits.Length > 1)
+        {
+            foreach (Collider2D h in hits)
+            {
+                if (!h.gameObject.CompareTag("Floor")) 
+                {
+                    hit = h;
+                    break;
+                }
+            }
+        }
 
         selectedObject = hit.gameObject;
 
