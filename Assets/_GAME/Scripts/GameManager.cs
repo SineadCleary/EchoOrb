@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public int numOrbs {  get; private set; }
     public int playerHealth { get; private set; } = 100;
     public bool rageMode;
+    [SerializeField] Sprite skeletonSprite;
 
     private void Start()
     {
@@ -82,6 +83,8 @@ public class GameManager : MonoBehaviour
 
     void PlayerDeath()
     {
+        player.GetComponent<SpriteRenderer>().enabled = false;
+        player.transform.GetChild(0).gameObject.SetActive(true);
         loseScreen.SetActive(true);
         Time.timeScale = 0;
     }

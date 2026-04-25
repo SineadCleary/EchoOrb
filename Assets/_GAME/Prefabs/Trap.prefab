@@ -179,6 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6c7bfb7aa111145a2866b68e028730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrapBlock
-  moveSpeed: 8
+  moveSpeed: 9
   rayLength: 10
   blockSound: {fileID: 8300000, guid: 1dcf1c8f5ae36374ca5d7ce68905578a, type: 3}

@@ -50,3 +50,4 @@ MonoBehaviour:
   loseScreen: {fileID: 0}
   pauseMenu: {fileID: 0}
   rageMode: 0
+  skeletonSprite: {fileID: 21300000, guid: 6f8fe547135cb3142a5548a9ebcb0c56, type: 3}

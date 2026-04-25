@@ -183,7 +183,7 @@ public class TrapBlock : MonoBehaviour
 
     void Crush() 
     { 
-        if (Vector3.Distance(transform.position, destination) <= 1 && 
+        if (Vector3.Distance(transform.position, destination) <= 0.5 && 
             Vector3.Distance(player.position, destination) <= 1) 
         {
             gameManager.AddHealth(-1000);
