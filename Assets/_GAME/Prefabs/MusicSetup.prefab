@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2221718863920214707}
   - component: {fileID: 1069691325376508106}
   m_Layer: 0
-  m_Name: AudioSetup
+  m_Name: MusicSetup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

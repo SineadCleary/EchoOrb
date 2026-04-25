@@ -22,7 +22,6 @@ public class LevelEditor : MonoBehaviour
     [SerializeField] SO_Database database;
 
     CameraMovement mainCamera;
-    [SerializeField] AudioSource UIAudioSource;
 
     Vector2 mousePosScreen;
     Vector2 mousePosWorld;
@@ -152,7 +151,7 @@ public class LevelEditor : MonoBehaviour
     {
         rotation = (rotation + 90 * direction + 360) % 360;
         objectPreview.transform.rotation = Quaternion.Euler(0, 0, rotation);
-        UIAudioSource.Play();
+        AudioManager.instance.PlayPopUISound();
     }
 
     public void ResetRotation()
@@ -167,7 +166,7 @@ public class LevelEditor : MonoBehaviour
         if (currentPlaceableItem.altId == 0) return;
         currentPlaceableItem = database.GetPlaceable(currentPlaceableItem.altId);
         SetPreview(currentPlaceableItem.editorPrefab);
-        UIAudioSource.Play();
+        AudioManager.instance.PlayPopUISound();
     }
 
     void Draw()

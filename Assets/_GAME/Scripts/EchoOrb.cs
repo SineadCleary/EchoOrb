@@ -15,7 +15,7 @@ public class EchoOrb : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             gameManager.AddOrb();
-            collision.GetComponent<AudioSource>().PlayOneShot(pickupSound);
+            AudioManager.instance.PlayPickupSound();
             Destroy(gameObject);
         }
     }

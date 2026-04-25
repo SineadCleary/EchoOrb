@@ -13,7 +13,6 @@ public class TrapBlock : MonoBehaviour
     GameManager gameManager;
     PathNode prevNode;
 
-    AudioSource audioSource;
     int layerMask;
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] int rayLength = 10;
@@ -31,7 +30,6 @@ public class TrapBlock : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         layerMask = LayerMask.GetMask("Player", "NonWalkable", "Trap"); // used for raycasts
         grid = Pathfinding.Instance.GetGrid();
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -177,7 +175,7 @@ public class TrapBlock : MonoBehaviour
         if (Vector3.Distance(transform.position, destination) <= 0.05f)
         {
             // reached destination
-            audioSource.PlayOneShot(blockSound);
+            AudioManager.instance.PlayBlockSound();
             transform.position = destination;
             moving = false;
         }

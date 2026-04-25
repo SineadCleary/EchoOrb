@@ -7,10 +7,9 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] TextMeshProUGUI orbsText;
     [SerializeField] TextMeshProUGUI healthText;
-    [SerializeField] AudioClip playerHurtSound;
     [SerializeField] GameObject winScreen;
     [SerializeField] GameObject loseScreen;
-    AudioSource audioSource;
+    [SerializeField] GameObject pauseMenu;
     GameObject player;
     public int numOrbs {  get; private set; }
     public int playerHealth { get; private set; } = 100;
@@ -19,7 +18,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
-        audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -43,7 +41,7 @@ public class GameManager : MonoBehaviour
         if (healthPoints < 0)
         {
             player.GetComponent<Player>().Hurt();
-            audioSource.PlayOneShot(playerHurtSound);
+            AudioManager.instance.PlayHurtSound();
         }
         playerHealth += healthPoints;
         if (playerHealth > 100) playerHealth = 100;
@@ -68,6 +66,18 @@ public class GameManager : MonoBehaviour
 
         winScreen.SetActive(true);
         Time.timeScale = 0;
+    }
+
+    public void PauseGame()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void UnPauseGame()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 
     void PlayerDeath()

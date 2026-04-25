@@ -13,8 +13,6 @@ public class Player : MonoBehaviour
     public bool atEnd = false;
 
     GameManager gameManager;
-    AudioSource myAudioSource;
-    [SerializeField] AudioClip activateSound;
     [SerializeField] Sprite death;
 
     public Holder nearHolder;
@@ -26,7 +24,6 @@ public class Player : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-        myAudioSource = GetComponent<AudioSource>();
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
@@ -63,7 +60,7 @@ public class Player : MonoBehaviour
     void OnActivate()
     {
         myAnimator.SetTrigger("Activate");
-        myAudioSource.PlayOneShot(activateSound);
+        AudioManager.instance.PlayActivateSound();
         activateEvent.Invoke();
     }
 
@@ -92,5 +89,10 @@ public class Player : MonoBehaviour
             nearHolder.SetPowered(true);
             gameManager.RemoveOrb();
         }
+    }
+
+    void OnPause()
+    {
+        gameManager.PauseGame();
     }
 }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4996736707636038550}
   - component: {fileID: 5506973454092580524}
   - component: {fileID: 1542218041256851362}
-  - component: {fileID: 4831768217116791735}
   - component: {fileID: -4565871644165411444}
   m_Layer: 0
   m_Name: RageHolderOn
@@ -131,103 +130,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!82 &4831768217116791735
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415333290878786936}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &-4565871644165411444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,8 +148,6 @@ MonoBehaviour:
   sprite_holder_orb: {fileID: -4178606984527723397, guid: 44e7d53993af3724a86543e02e2a5e68, type: 3}
   sprite_holder_hilight: {fileID: 5223757114977177642, guid: 44e7d53993af3724a86543e02e2a5e68, type: 3}
   sprite_holder_orb_hilight: {fileID: 3045056062814082897, guid: 44e7d53993af3724a86543e02e2a5e68, type: 3}
-  placeOrbSound: {fileID: 8300000, guid: 5c8aa2138851c494cbb081978d3f5009, type: 3}
-  takeOrbSound: {fileID: 8300000, guid: 97e8e214dc1a24749871415f9327c94c, type: 3}
 --- !u!1 &8416071097964044302
 GameObject:
   m_ObjectHideFlags: 0

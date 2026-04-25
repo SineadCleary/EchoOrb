@@ -7,22 +7,18 @@ public class Task_Shoot : Node
     private Animator animator;
     private Transform player;
     private GameObject bulletPrefab;
-    private AudioSource audioSource;
-    private AudioClip shootSound;
     private float cooldown;
     LayerMask layerMask;
 
     private float cooldownTimer;
 
-    public Task_Shoot(Transform transform, Transform player, GameObject bulletPrefab, AudioClip shootSound, float cooldown)
+    public Task_Shoot(Transform transform, Transform player, GameObject bulletPrefab, float cooldown)
     {
         this.transform = transform;
         animator = transform.GetComponent<Animator>();
         this.player = player;
         this.bulletPrefab = bulletPrefab;
         this.cooldown = cooldown;
-        audioSource = transform.GetComponent<AudioSource>();
-        this.shootSound = shootSound;
         layerMask = LayerMask.GetMask("Player", "NonWalkable", "Trap");
     }
 
@@ -51,10 +47,7 @@ public class Task_Shoot : Node
 
     private void Shoot()
     {
-        if ( audioSource != null)
-        {
-            audioSource.PlayOneShot(shootSound);
-        }
+        AudioManager.instance.PlayThrowSound();
         Vector2 dir = (player.position - transform.position).normalized;
         GameObject bullet = Object.Instantiate(bulletPrefab, transform.position + (Vector3)(dir * 1.1f), Quaternion.identity);
         bullet.GetComponent<Bullet>().SetMoveDirection(dir);
