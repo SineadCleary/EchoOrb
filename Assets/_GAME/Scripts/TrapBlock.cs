@@ -1,42 +1,60 @@
-using UnityEngine;
-using UnityEngine.Tilemaps;
+    using System;
+    using UnityEngine;
+    using UnityEngine.Tilemaps;
 
-public class TrapBlock : MonoBehaviour
-{
-    bool debug = true;
-    Vector2 gridOffset = new Vector2(0.5f, 0.5f);
+    public class TrapBlock : MonoBehaviour
+    {
+        bool debug = true;
+        Vector2 gridOffset = new Vector2(0.5f, 0.5f);
 
-    bool moving = false;
-    Vector2 destination;
-    MyGrid<PathNode> grid;
-    Transform player;
-    GameManager gameManager;
-    PathNode prevNode;
+        bool moving = false;
+        Vector2 destination;
+        Vector2Int currentDirection;
+        MyGrid<PathNode> grid;
+        Transform playerTransform;
+        Player player;
+        GameManager gameManager;
+        PathNode prevNode;
 
-    int layerMask;
-    [SerializeField] float moveSpeed = 3f;
-    [SerializeField] int rayLength = 10;
-    [SerializeField] AudioClip blockSound;
+        int layerMask;
+        [SerializeField] float moveSpeed = 3f;
+        [SerializeField] int rayLength = 10;
+        [SerializeField] AudioClip blockSound;
 
-    RaycastHit2D leftRay;
-    RaycastHit2D rightRay;
-    RaycastHit2D upRay;
-    RaycastHit2D downRay;
+        RaycastHit2D leftRay;
+        RaycastHit2D rightRay;
+        RaycastHit2D upRay;
+        RaycastHit2D downRay;
 
-    Vector2 leftRayOrigin;
-    Vector2 rightRayOrigin;
-    Vector2 upRayOrigin;
-    Vector2 downRayOrigin;
+        Vector2 leftRayOrigin;
+        Vector2 rightRayOrigin;
+        Vector2 upRayOrigin;
+        Vector2 downRayOrigin;
+
+    void Awake()
+    {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        player = playerTransform.GetComponent<Player>();
+    }
 
     void Start()
     {
         layerMask = LayerMask.GetMask("Player", "NonWalkable", "Trap"); // used for raycasts
         grid = Pathfinding.Instance.GetGrid();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
 
         prevNode = grid.GetGridObject(transform.position);
         prevNode.isWalkable = false;
+    }
+
+    void OnEnable()
+    {
+        player.activateEvent.AddListener(Recalculate);
+    }
+
+    void OnDisable()
+    {
+        player.activateEvent.RemoveListener(Recalculate);
     }
 
     private void Update()
@@ -108,7 +126,12 @@ public class TrapBlock : MonoBehaviour
     {
         grid.GetGridPosition(transform.position, out int startX, out int startY);
         PathNode startNode = grid.GetGridObject(startX, startY);
-        if (startNode == null) return transform.position;
+        if (startNode == null) 
+        {
+            Debug.Log("AS");
+            return transform.position; 
+        }
+        currentDirection = direction;
 
         // left/right
         if (direction.x != 0) 
@@ -121,15 +144,15 @@ public class TrapBlock : MonoBehaviour
                     Vector2 destination = grid.GetWorldPosition(node.x - direction.x, node.y);
                     destination += gridOffset; // fixes grid offset issue
 
-                    if (prevNode != null)
-                    {
-                        prevNode.isWalkable = true;
-                    }
+                    //if (prevNode != null)
+                    //{
+                    //    prevNode.isWalkable = true;
+                    //}
 
-                    PathNode destNode = grid.GetGridObject(destination);
-                    destNode.isWalkable = false;
+                    //PathNode destNode = grid.GetGridObject(destination);
+                    //destNode.isWalkable = false;
 
-                    prevNode = destNode;
+                    //prevNode = destNode;
 
                     return destination;
                 }
@@ -146,15 +169,15 @@ public class TrapBlock : MonoBehaviour
                     Vector2 destination = grid.GetWorldPosition(node.x, node.y - direction.y);
                     destination += gridOffset; // fixes grid offset issue
 
-                    if (prevNode != null)
-                    {
-                        prevNode.isWalkable = true;
-                    }
+                    //if (prevNode != null)
+                    //{
+                    //    prevNode.isWalkable = true;
+                    //}
 
-                    PathNode destNode = grid.GetGridObject(destination);
-                    destNode.isWalkable = false;
+                    //PathNode destNode = grid.GetGridObject(destination);
+                    //destNode.isWalkable = false;
 
-                    prevNode = destNode;
+                    //prevNode = destNode;
 
                     return destination;
                 }
@@ -172,19 +195,36 @@ public class TrapBlock : MonoBehaviour
             moveSpeed * Time.deltaTime
         );
 
+        // reached destination
         if (Vector3.Distance(transform.position, destination) <= 0.05f)
         {
-            // reached destination
             AudioManager.instance.PlayBlockSound();
             transform.position = destination;
+
+            if (prevNode != null)
+            {
+                prevNode.isWalkable = true;
+            }
+
+            PathNode destNode = grid.GetGridObject(destination);
+            destNode.isWalkable = false;
+
+            prevNode = destNode;
+
             moving = false;
         }
+    }
+
+    void Recalculate()
+    {
+        if (!moving) return;
+        destination = GetDestination(currentDirection);
     }
 
     void Crush() 
     { 
         if (Vector3.Distance(transform.position, destination) <= 0.5 && 
-            Vector3.Distance(player.position, destination) <= 1) 
+            Vector3.Distance(playerTransform.position, destination) <= 1) 
         {
             gameManager.AddHealth(-1000);
             moving = false;
