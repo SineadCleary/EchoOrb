@@ -12,7 +12,7 @@ public class DisappearAfterTime : MonoBehaviour
 
     void Update()
     {
-        timer -= Time.deltaTime;
+        timer -= Time.unscaledDeltaTime;
         if (timer <= 0)
         {
             gameObject.SetActive(false);

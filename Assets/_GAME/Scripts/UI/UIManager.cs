@@ -38,12 +38,14 @@ public class UIManager : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        ResetTime();
         LevelLoader.currentLevel = null;
         SceneManager.LoadScene(0);
     }
 
     public void OpenGallery()
     {
+        ResetTime();
         LevelLoader.currentLevel = null;
         SceneManager.LoadScene(2);
     }
@@ -65,5 +67,15 @@ public class UIManager : MonoBehaviour
     {
         SaveCurrentLevel();
         OpenGallery();
+    }
+
+    public void ResetPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
+    void ResetTime()
+    {
+        Time.timeScale = 1;
     }
 }

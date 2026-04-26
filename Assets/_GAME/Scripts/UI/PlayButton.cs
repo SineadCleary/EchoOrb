@@ -1,10 +1,23 @@
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayButton : MonoBehaviour
 {
     [SerializeField] string levelName;
+    [SerializeField] string title;
     [SerializeField] UIManager manager;
+    [SerializeField] Sprite completeSprite;
+
+    private void Start()
+    {
+        if (PlayerPrefs.GetInt(title) == 1)
+        {
+            Image image = gameObject.GetComponent<Image>();
+            if (completeSprite != null && image != null)
+                image.sprite = completeSprite;
+        }
+    }
 
     public void Play()
     {

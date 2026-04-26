@@ -70,7 +70,7 @@ public class LevelEditor : MonoBehaviour
         {
             if (selectedObject != null)
             {
-                selectedObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+                //selectedObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
                 selectedObject = null;
             }
         }
@@ -223,7 +223,7 @@ public class LevelEditor : MonoBehaviour
         // Clear previous selection
         if (selectedObject != null)
         {
-            selectedObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+            //selectedObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
             selectedObject = null;
         }
 

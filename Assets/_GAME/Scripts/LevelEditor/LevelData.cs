@@ -12,6 +12,7 @@ public class LevelData
     public float cameraZoom;
     public List<ItemData> items = new List<ItemData>();
     public List<TileData> tiles = new List<TileData>();
+    public bool won;
 
     public LevelData(string title, string author)
     {

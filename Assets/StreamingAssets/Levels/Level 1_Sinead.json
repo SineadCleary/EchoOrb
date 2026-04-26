@@ -1,7 +1,7 @@
 {
     "title": "Level 1",
     "author": "Sinead",
-    "date": "10/04/2026",
+    "date": "26/04/2026",
     "complete": true,
     "cameraPos": {
         "x": 8.49431037902832,
@@ -13,62 +13,74 @@
         {
             "prefabID": 100,
             "x": -6.0,
-            "y": -1.0
+            "y": -1.0,
+            "rotation": 0
         },
         {
             "prefabID": 102,
             "x": -4.0,
-            "y": 3.0
+            "y": 3.0,
+            "rotation": 0
         },
         {
             "prefabID": 201,
             "x": -3.0,
-            "y": -6.0
+            "y": -6.0,
+            "rotation": 0
         },
         {
             "prefabID": 200,
             "x": -3.0,
-            "y": -10.0
+            "y": -10.0,
+            "rotation": 0
         },
         {
             "prefabID": 101,
             "x": 7.0,
-            "y": 3.0
+            "y": 3.0,
+            "rotation": 0
         },
         {
             "prefabID": 103,
             "x": 15.0,
-            "y": -11.0
+            "y": -11.0,
+            "rotation": 0
         },
         {
             "prefabID": 103,
             "x": 17.0,
-            "y": -11.0
+            "y": -11.0,
+            "rotation": 0
         },
         {
             "prefabID": 103,
             "x": 19.0,
-            "y": -11.0
+            "y": -11.0,
+            "rotation": 0
         },
         {
             "prefabID": 202,
             "x": 20.0,
-            "y": -11.0
+            "y": -11.0,
+            "rotation": 0
         },
         {
             "prefabID": 302,
             "x": 19.0,
-            "y": -2.0
+            "y": -2.0,
+            "rotation": 0
         },
         {
             "prefabID": 302,
             "x": 11.0,
-            "y": -1.0
+            "y": -1.0,
+            "rotation": 0
         },
         {
             "prefabID": 300,
             "x": -1.0,
-            "y": -11.0
+            "y": -11.0,
+            "rotation": 0
         }
     ],
     "tiles": [
