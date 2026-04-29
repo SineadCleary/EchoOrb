@@ -2947,7 +2947,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Echo Orb v0.1.8\nMade by Sin\xE9ad Cleary\n\nThanks to Brendan Lyng for
+  m_text: "Echo Orb v1.0\nMade by Sin\xE9ad Cleary\n\nThanks to Brendan Lyng for
     his guidance and support throughout this project.\n\n<align=\"center\"><b>Music</b></align>\nGameplay
     music - genxbeats (Pixabay): https://pixabay.com/music/beats-dark-dungeon-game-hiphop-20241015-252251/\n\nMenu
     music - genxbeats (Pixabay): https://pixabay.com/music/beats-dark-hiphop-20250121-360664/\n\nEditor
