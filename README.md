@@ -1,4 +1,5 @@
-# EchoOrb
+# EchoOrb - Puzzle-Adventure Unity 2D Game with Level Editor
+
 Some icons are not included in this repository due to licensing restrictions from Flaticon.
 
 To run the project with full UI, download the required icons and place them in: `/Assets/FlatIcon/`
