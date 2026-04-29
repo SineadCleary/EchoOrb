@@ -26,6 +26,8 @@ Required files:
 - zoom-in.png
 - zoom-out.png
 
+A compiled build is available under the Releases section.
+
 ## Credits 
 Thanks to Brendan Lyng for his guidance and support throughout this project.
 ### Music
