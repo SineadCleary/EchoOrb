@@ -1,7 +1,32 @@
 # EchoOrb
-Icons not included - must be placed in Assets/FlatIcon.
+Some icons are not included in this repository due to licensing restrictions from Flaticon.
+
+To run the project with full UI, download the required icons and place them in: `/Assets/FlatIcon/`
+
+You can obtain the icons from: https://www.flaticon.com/
+
+Required files:
+- arrows (1).png
+- arrows.png
+- broom.png
+- eraser (1).png
+- eraser.png
+- grid-lock.png
+- menu-dots-vertical.png
+- mouse-pointer-click (1).png
+- mouse-pointer-click.png
+- paint (1).png
+- paint.png
+- pipette (1).png
+- pipette.png
+- play.png
+- trash.png
+- undo.png
+- zoom-in.png
+- zoom-out.png
 
 ## Credits 
+Thanks to Brendan Lyng for his guidance and support throughout this project.
 ### Music
 
 Gameplay music from genxbeats on Pixabay: https://pixabay.com/music/beats-dark-dungeon-game-hiphop-20241015-252251/
